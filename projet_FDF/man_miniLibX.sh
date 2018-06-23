@@ -1,6 +1,6 @@
 #!/bin/sh
 chmod a+x ${0}
-function usage {
+usage () {
 echo "usage: ${0} <MAN_PAGE>"
 echo ''
 echo 'MAN_PAGE:'

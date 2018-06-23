@@ -57,3 +57,8 @@ int	mlx_int_str_str_cote(char *str, char *find, int len);
 #Passer en commentaire dans le fichier 'minilibx/mlx.h' la ligne suivante :
 unsigned int	mlx_get_color_value(void *mlx_ptr, int color);
 
+sudo cp libmlx.a /usr/local/lib/
+sudo cp mlx.h /usr/local/include/
+sudo mkdir -p /usr/local/man/man3
+sudo cp man/man3/mlx*.1 /usr/local/man/man3/
+
