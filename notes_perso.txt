@@ -1,0 +1,59 @@
+
+git clone https://github.com/HippopoStar/branche_graphique.git
+wget https://projects.intra.42.fr/uploads/document/document/7/sources.tgz
+tar -xzvf sources.tgz
+#Concernant le fichier '/usr/include/X11/Xlib.h'
+sudo apt-get update && sudo apt-get install libx11-dev
+#Concernant le fichier '/usr/include/X11/extensions/XShm.h'
+sudo apt-get update && sudo apt-get install apt-file
+apt-file search /usr/include/X11/extensions/XShm.h
+sudo apt-get update && sudo apt-get install libxext-dev
+
+#Ajouter quelque part dans le fichier 'minilibx/mlx_xpm.c' les lignes suivantes :
+int	mlx_get_color_value(t_xvar *xvar, int color);
+
+size_t	strlcpy(char *dst, const char *src, size_t siz)
+{
+	char		*d = dst;
+	const char	*s = src;
+	size_t		n = siz;
+
+	/* Copy as many bytes as will fit */
+	if (n != 0 && --n != 0)
+	{
+		do {
+			if ((*d++ = *s++) == 0)
+			{
+				break ;
+			}
+		} while (--n != 0);
+	}
+
+	/* Not enough room in dst, add NUL and traverse rest of src */
+	if (n == 0)
+	{
+		if (siz != 0)
+		{
+			*d = '\0';	/* NUL-terminate dst */
+		}
+		while (*s++)
+			;
+	}
+
+	return (s - src - 1);		/* count does not include NUL */
+}
+
+#Ajouter quelque part dans le fichier 'minilibx/test/main.c' les lignes suivantes :
+int	mlx_get_color_value(t_xvar *xvar, int color);
+int	color_map_1(void *win, int w, int h);
+int	color_map_2(unsigned char *data, int bpp, int sl, int w, int h, int endian, int type);
+
+#Ajouter quelque part dans le fichier 'minilibx/mlx_int.h' les lignes suivantes :
+int	mlx_int_get_visual(t_xvar *xvar);
+int	mlx_int_set_win_event_mask(t_xvar *xvar);
+int	mlx_int_str_str(char *str, char *find, int len);
+int	mlx_int_str_str_cote(char *str, char *find, int len);
+
+#Passer en commentaire dans le fichier 'minilibx/mlx.h' la ligne suivante :
+unsigned int	mlx_get_color_value(void *mlx_ptr, int color);
+
