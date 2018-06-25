@@ -13,18 +13,19 @@
 #ifndef FDF_H
 # define FDF_H
 
-# include "libft.h"
-# include "get_next_line.h"
+//# include "libft.h"
+//# include "get_next_line.h"
 # include <stdio.h>
 # include <stdlib.h>
 # include <math.h>
 # include "mlx.h"
 
-typedef struct		s_fdf
+typedef struct		s_point
 {
 	int				x;
 	int				y;
-	int				z;
-}					t_fdf;
+}					t_point;
+
+void	fdf_bresenham(t_point a, t_point b, void *mlx_ptr, void *win_ptr);
 
 #endif

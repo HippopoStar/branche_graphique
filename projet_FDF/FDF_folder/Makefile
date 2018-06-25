@@ -11,16 +11,18 @@
 # **************************************************************************** #
 
 CFLAGS	+=		-Wall -Wextra -Werror
-CFLAGS	+=		-I /usr/local/include/
-CFLAGS	+=		-L /usr/local/lib/
+CFLAGS	+=		-I/usr/local/include/ -I./
+CFLAGS	+=		-L/usr/local/lib/
 LIBS		=	-lmlx -lXext -lX11
 FRAMEWORKS	=	-framework OpenGL -framework AppKit
 
-NAME = basic.out
+NAME = FDF
 
-SRCS = main_basic.c
+SRCS = ./srcs/main.c\
+       ./srcs/fdf_bresenham.c
 
-OBJS = main_basic.o
+OBJS = ./main.o\
+       ./fdf_bresenham.o
 
 all: $(NAME)
 
