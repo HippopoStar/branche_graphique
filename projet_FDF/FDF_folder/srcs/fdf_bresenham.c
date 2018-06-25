@@ -36,7 +36,7 @@ void	fdf_aux_bresenham(t_point a, t_point b, void *mlx_ptr, void *win_ptr)
 		{
 			e = dy;
 			dy = dy * 2;
-			dx = dx *2;
+			dx = dx * 2;
 			while (a.y < b.y)
 			{
 				mlx_pixel_put(mlx_ptr, win_ptr, a.x, a.y, 0xFFFFFF);
@@ -50,7 +50,7 @@ void	fdf_aux_bresenham(t_point a, t_point b, void *mlx_ptr, void *win_ptr)
 			}
 		}
 	}
-	else if (dy > 0)
+	else if (dy < 0)
 	{
 		if (dx >= -dy)
 		{
@@ -109,6 +109,7 @@ void	fdf_aux_bresenham(t_point a, t_point b, void *mlx_ptr, void *win_ptr)
 void	fdf_bresenham(t_point a, t_point b, void *mlx_ptr, void *win_ptr)
 {
 	int		dx;
+	int		dy;
 
 	dx = b.x - a.x;
 	dy = b.y - a.y;
