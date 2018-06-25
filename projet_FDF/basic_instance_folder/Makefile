@@ -12,6 +12,7 @@
 
 CFLAGS	+=		-Wall -Wextra -Werror
 CFLAGS	+=		-I /usr/local/include/
+LIBS		=	-L /usr/local/lib/ -lmlx -lXext -lX11
 FRAMEWORKS	=	-framework OpenGL -framework AppKit
 
 NAME = basic.out
@@ -24,7 +25,7 @@ all: $(NAME)
 
 $(NAME):
 	gcc -c $(CFLAGS) $(SRCS)
-	gcc -o $(NAME) $(CFLAGS) -L /usr/local/lib/ $(OBJS) -lmlx $(FRAMEWORKS)
+	gcc -o $(NAME) $(CFLAGS) $(OBJS) $(LIBS)
 
 clean:
 	rm -f $(OBJS)
