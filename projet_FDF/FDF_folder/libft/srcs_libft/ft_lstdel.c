@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.h                                              :+:      :+:    :+:   */
+/*   ft_lstdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lcabanes <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/19 23:17:07 by lcabanes          #+#    #+#             */
-/*   Updated: 2018/04/19 23:29:59 by lcabanes         ###   ########.fr       */
+/*   Created: 2017/11/17 02:18:56 by lcabanes          #+#    #+#             */
+/*   Updated: 2017/11/25 23:50:22 by lcabanes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_H
-# define FDF_H
+#include "libft.h"
 
-# include "libft.h"
-# include "get_next_line.h"
-# include <stdio.h>
-# include <stdlib.h>
-# include <math.h>
-# include "mlx.h"
-
-typedef struct		s_point
+void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
 {
-	int				x;
-	int				y;
-}					t_point;
+	t_list	*current;
+	t_list	*next;
 
-void	fdf_usage(void);
-void	fdf_bresenham(t_point a, t_point b, void *mlx_ptr, void *win_ptr);
-
-#endif
+	current = (*alst);
+	while (current != NULL)
+	{
+		next = current->next;
+		ft_lstdelone(&(current), del);
+		current = next;
+	}
+	*alst = NULL;
+}

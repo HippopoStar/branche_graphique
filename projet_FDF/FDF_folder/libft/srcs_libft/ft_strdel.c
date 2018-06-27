@@ -1,32 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.h                                              :+:      :+:    :+:   */
+/*   ft_strdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lcabanes <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/19 23:17:07 by lcabanes          #+#    #+#             */
-/*   Updated: 2018/04/19 23:29:59 by lcabanes         ###   ########.fr       */
+/*   Created: 2017/11/10 18:20:07 by lcabanes          #+#    #+#             */
+/*   Updated: 2017/11/28 01:16:17 by lcabanes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_H
-# define FDF_H
+#include "libft.h"
 
-# include "libft.h"
-# include "get_next_line.h"
-# include <stdio.h>
-# include <stdlib.h>
-# include <math.h>
-# include "mlx.h"
-
-typedef struct		s_point
+static void	aux_ft_strdel(char **as)
 {
-	int				x;
-	int				y;
-}					t_point;
+	free(*as);
+	*(as) = NULL;
+}
 
-void	fdf_usage(void);
-void	fdf_bresenham(t_point a, t_point b, void *mlx_ptr, void *win_ptr);
-
-#endif
+void		ft_strdel(char **as)
+{
+	if (as != NULL && *as != NULL)
+	{
+		aux_ft_strdel(as);
+	}
+}

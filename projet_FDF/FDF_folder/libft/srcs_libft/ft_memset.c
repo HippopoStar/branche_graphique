@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.h                                              :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lcabanes <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/19 23:17:07 by lcabanes          #+#    #+#             */
-/*   Updated: 2018/04/19 23:29:59 by lcabanes         ###   ########.fr       */
+/*   Created: 2017/11/15 17:40:55 by lcabanes          #+#    #+#             */
+/*   Updated: 2017/11/15 18:25:02 by lcabanes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_H
-# define FDF_H
+#include "libft.h"
 
-# include "libft.h"
-# include "get_next_line.h"
-# include <stdio.h>
-# include <stdlib.h>
-# include <math.h>
-# include "mlx.h"
-
-typedef struct		s_point
+void	*ft_memset(void *b, int c, size_t len)
 {
-	int				x;
-	int				y;
-}					t_point;
+	size_t			i;
+	unsigned char	byte;
+	unsigned char	*emplacement;
 
-void	fdf_usage(void);
-void	fdf_bresenham(t_point a, t_point b, void *mlx_ptr, void *win_ptr);
-
-#endif
+	byte = (unsigned char)c;
+	emplacement = (unsigned char *)b;
+	i = 0;
+	while (i < len)
+	{
+		*(emplacement + i) = byte;
+		i++;
+	}
+	return (b);
+}

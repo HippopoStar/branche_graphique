@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.h                                              :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lcabanes <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/19 23:17:07 by lcabanes          #+#    #+#             */
-/*   Updated: 2018/04/19 23:29:59 by lcabanes         ###   ########.fr       */
+/*   Created: 2017/11/15 18:31:20 by lcabanes          #+#    #+#             */
+/*   Updated: 2017/11/15 18:40:07 by lcabanes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_H
-# define FDF_H
+#include "libft.h"
 
-# include "libft.h"
-# include "get_next_line.h"
-# include <stdio.h>
-# include <stdlib.h>
-# include <math.h>
-# include "mlx.h"
-
-typedef struct		s_point
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	int				x;
-	int				y;
-}					t_point;
+	size_t			i;
+	unsigned char	*cast_dst;
+	unsigned char	*cast_src;
 
-void	fdf_usage(void);
-void	fdf_bresenham(t_point a, t_point b, void *mlx_ptr, void *win_ptr);
-
-#endif
+	cast_dst = (unsigned char *)dst;
+	cast_src = (unsigned char *)src;
+	i = 0;
+	while (i < n)
+	{
+		*(cast_dst + i) = *(cast_src + i);
+		i++;
+	}
+	return (dst);
+}

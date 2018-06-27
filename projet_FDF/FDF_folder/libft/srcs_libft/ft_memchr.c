@@ -1,32 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.h                                              :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lcabanes <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/19 23:17:07 by lcabanes          #+#    #+#             */
-/*   Updated: 2018/04/19 23:29:59 by lcabanes         ###   ########.fr       */
+/*   Created: 2017/11/15 20:57:46 by lcabanes          #+#    #+#             */
+/*   Updated: 2017/11/15 21:10:23 by lcabanes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_H
-# define FDF_H
+#include "libft.h"
 
-# include "libft.h"
-# include "get_next_line.h"
-# include <stdio.h>
-# include <stdlib.h>
-# include <math.h>
-# include "mlx.h"
-
-typedef struct		s_point
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	int				x;
-	int				y;
-}					t_point;
+	size_t			i;
+	unsigned char	byte;
+	unsigned char	*cast_s;
 
-void	fdf_usage(void);
-void	fdf_bresenham(t_point a, t_point b, void *mlx_ptr, void *win_ptr);
-
-#endif
+	byte = (unsigned char)c;
+	cast_s = (unsigned char *)s;
+	i = 0;
+	while (i < n && *(cast_s + i) != byte)
+	{
+		i++;
+	}
+	if (i < n)
+	{
+		return ((void *)(s + i));
+	}
+	else
+	{
+		return (NULL);
+	}
+}

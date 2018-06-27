@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.h                                              :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lcabanes <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/19 23:17:07 by lcabanes          #+#    #+#             */
-/*   Updated: 2018/04/19 23:29:59 by lcabanes         ###   ########.fr       */
+/*   Created: 2017/11/09 10:34:34 by lcabanes          #+#    #+#             */
+/*   Updated: 2017/11/09 10:41:56 by lcabanes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_H
-# define FDF_H
+#include "libft.h"
 
-# include "libft.h"
-# include "get_next_line.h"
-# include <stdio.h>
-# include <stdlib.h>
-# include <math.h>
-# include "mlx.h"
-
-typedef struct		s_point
+char	*ft_strdup(const char *s1)
 {
-	int				x;
-	int				y;
-}					t_point;
+	size_t	i;
+	size_t	length;
+	char	*s2;
 
-void	fdf_usage(void);
-void	fdf_bresenham(t_point a, t_point b, void *mlx_ptr, void *win_ptr);
-
-#endif
+	length = ft_strlen(s1);
+	if (!(s2 = (char *)malloc((length + 1) * sizeof(char))))
+		return (NULL);
+	i = 0;
+	while (i <= length)
+	{
+		*(s2 + i) = *(s1 + i);
+		i++;
+	}
+	return (s2);
+}

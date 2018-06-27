@@ -11,29 +11,34 @@
 # **************************************************************************** #
 
 CFLAGS	+=		-Wall -Wextra -Werror
-CFLAGS	+=		-I/usr/local/include/ -I./
-CFLAGS	+=		-L/usr/local/lib/
-LIBS		=	-lmlx -lXext -lX11
+CFLAGS	+=		-I/usr/local/include/ -I./libft/includes -I./
+CFLAGS	+=		-L/usr/local/lib/ -L./libft/
+LIBS		=	-lft -lmlx -lXext -lX11
 FRAMEWORKS	=	-framework OpenGL -framework AppKit
 
-NAME = FDF
+NAME = fdf
 
-SRCS = ./srcs/main.c\
-       ./srcs/fdf_bresenham.c
+SRCS = ./srcs_fdf/main.c\
+       ./srcs_fdf/fdf_usage.c\
+       ./srcs_fdf/fdf_bresenham.c
 
-OBJS = ./main.o\
-       ./fdf_bresenham.o
+OBJS = main.o\
+       fdf_usage.o\
+       fdf_bresenham.o
 
 all: $(NAME)
 
 $(NAME):
+	@make -C ./libft/ all
 	gcc -c $(CFLAGS) $(SRCS)
 	gcc -o $(NAME) $(CFLAGS) $(OBJS) $(LIBS)
 
 clean:
+	@make -C ./libft/ clean
 	rm -f $(OBJS)
 
 fclean: clean
+	@make -C ./libft/ fclean
 	rm -f $(NAME)
 
 re: fclean all

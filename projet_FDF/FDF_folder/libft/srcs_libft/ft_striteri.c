@@ -1,32 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.h                                              :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lcabanes <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/19 23:17:07 by lcabanes          #+#    #+#             */
-/*   Updated: 2018/04/19 23:29:59 by lcabanes         ###   ########.fr       */
+/*   Created: 2017/11/10 16:26:20 by lcabanes          #+#    #+#             */
+/*   Updated: 2017/11/28 01:46:01 by lcabanes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_H
-# define FDF_H
+#include "libft.h"
 
-# include "libft.h"
-# include "get_next_line.h"
-# include <stdio.h>
-# include <stdlib.h>
-# include <math.h>
-# include "mlx.h"
-
-typedef struct		s_point
+static void	aux_ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	int				x;
-	int				y;
-}					t_point;
+	unsigned int	i;
 
-void	fdf_usage(void);
-void	fdf_bresenham(t_point a, t_point b, void *mlx_ptr, void *win_ptr);
+	i = 0;
+	while (*(s + i) != '\0')
+	{
+		f(i, &(*(s + i)));
+		i++;
+	}
+}
 
-#endif
+void		ft_striteri(char *s, void (*f)(unsigned int, char *))
+{
+	if (s != NULL && f != NULL)
+	{
+		aux_ft_striteri(s, f);
+	}
+}

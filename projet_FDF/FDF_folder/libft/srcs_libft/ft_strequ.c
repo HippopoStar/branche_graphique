@@ -1,32 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.h                                              :+:      :+:    :+:   */
+/*   ft_strequ.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lcabanes <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/19 23:17:07 by lcabanes          #+#    #+#             */
-/*   Updated: 2018/04/19 23:29:59 by lcabanes         ###   ########.fr       */
+/*   Created: 2017/11/10 17:23:26 by lcabanes          #+#    #+#             */
+/*   Updated: 2017/11/28 01:32:00 by lcabanes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_H
-# define FDF_H
+#include "libft.h"
 
-# include "libft.h"
-# include "get_next_line.h"
-# include <stdio.h>
-# include <stdlib.h>
-# include <math.h>
-# include "mlx.h"
-
-typedef struct		s_point
+static int	aux_ft_strequ(char const *s1, char const *s2)
 {
-	int				x;
-	int				y;
-}					t_point;
+	size_t	i;
 
-void	fdf_usage(void);
-void	fdf_bresenham(t_point a, t_point b, void *mlx_ptr, void *win_ptr);
+	i = 0;
+	while (*(s1 + i) == *(s2 + i) && *(s1 + i) != '\0' && *(s2 + i) != '\0')
+	{
+		i++;
+	}
+	if (*(s1 + i) == *(s2 + i))
+	{
+		return (1);
+	}
+	else
+	{
+		return (0);
+	}
+}
 
-#endif
+int			ft_strequ(char const *s1, char const *s2)
+{
+	return ((s1 != NULL && s2 != NULL) ? aux_ft_strequ(s1, s2) : 0);
+}

@@ -1,7 +1,5 @@
 #include "fdf.h"
 
-#include <stdlib.h> //ATTENTION : 'atoi'
-
 void	aux_fdf(int argc, char **argv, void *mlx_ptr, void *win_ptr)
 {
 	t_point	a;
@@ -9,10 +7,10 @@ void	aux_fdf(int argc, char **argv, void *mlx_ptr, void *win_ptr)
 
 	(void)argc;
 	(void)argv;
-	a.x = atoi(*(argv + 0)); //ATTENTION : 'atoi'
-	a.y = atoi(*(argv + 1)); //ATTENTION : 'atoi'
-	b.x = atoi(*(argv + 2)); //ATTENTION : 'atoi'
-	b.y = atoi(*(argv + 3)); //ATTENTION : 'atoi'
+	a.x = ft_atoi(*(argv + 0));
+	a.y = ft_atoi(*(argv + 1));
+	b.x = ft_atoi(*(argv + 2));
+	b.y = ft_atoi(*(argv + 3));
 	fdf_bresenham(a, b, mlx_ptr, win_ptr);
 }
 
@@ -31,7 +29,7 @@ int		main(int argc, char **argv)
 {
 	if (argc != 5)
 	{
-//		usage();
+		fdf_usage();
 	}
 	else
 	{

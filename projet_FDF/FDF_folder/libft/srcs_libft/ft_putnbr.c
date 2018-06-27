@@ -1,32 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.h                                              :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lcabanes <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/19 23:17:07 by lcabanes          #+#    #+#             */
-/*   Updated: 2018/04/19 23:29:59 by lcabanes         ###   ########.fr       */
+/*   Created: 2017/11/09 10:49:38 by lcabanes          #+#    #+#             */
+/*   Updated: 2017/11/25 20:58:20 by lcabanes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_H
-# define FDF_H
+#include "libft.h"
 
-# include "libft.h"
-# include "get_next_line.h"
-# include <stdio.h>
-# include <stdlib.h>
-# include <math.h>
-# include "mlx.h"
-
-typedef struct		s_point
+static void	aux_ft_putnbr(int n)
 {
-	int				x;
-	int				y;
-}					t_point;
+	if (n != 0)
+	{
+		aux_ft_putnbr(n / 10);
+		ft_putchar('0' + (n % 10));
+	}
+}
 
-void	fdf_usage(void);
-void	fdf_bresenham(t_point a, t_point b, void *mlx_ptr, void *win_ptr);
-
-#endif
+void		ft_putnbr(int n)
+{
+	if (n == 0)
+	{
+		ft_putchar('0');
+	}
+	else if (n == -2147483648)
+	{
+		ft_putstr("-2147483648");
+	}
+	else if (n < 0)
+	{
+		ft_putchar('-');
+		aux_ft_putnbr(-n);
+	}
+	else
+	{
+		aux_ft_putnbr(n);
+	}
+}

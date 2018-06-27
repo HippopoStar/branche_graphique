@@ -1,32 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.h                                              :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lcabanes <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/19 23:17:07 by lcabanes          #+#    #+#             */
-/*   Updated: 2018/04/19 23:29:59 by lcabanes         ###   ########.fr       */
+/*   Created: 2017/11/17 04:49:52 by lcabanes          #+#    #+#             */
+/*   Updated: 2017/11/17 08:32:34 by lcabanes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_H
-# define FDF_H
+#include "libft.h"
 
-# include "libft.h"
-# include "get_next_line.h"
-# include <stdio.h>
-# include <stdlib.h>
-# include <math.h>
-# include "mlx.h"
-
-typedef struct		s_point
+char	*ft_strrchr(const char *s, int c)
 {
-	int				x;
-	int				y;
-}					t_point;
+	size_t	i;
+	size_t	length;
+	char	character;
 
-void	fdf_usage(void);
-void	fdf_bresenham(t_point a, t_point b, void *mlx_ptr, void *win_ptr);
-
-#endif
+	length = ft_strlen(s);
+	character = (char)c;
+	i = 0;
+	while (i <= length)
+	{
+		if (*(s + length - i) == character)
+		{
+			return ((char *)(s + length - i));
+		}
+		i++;
+	}
+	return (NULL);
+}

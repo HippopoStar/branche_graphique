@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.h                                              :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lcabanes <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/19 23:17:07 by lcabanes          #+#    #+#             */
-/*   Updated: 2018/04/19 23:29:59 by lcabanes         ###   ########.fr       */
+/*   Created: 2017/11/17 03:18:50 by lcabanes          #+#    #+#             */
+/*   Updated: 2017/11/17 03:27:05 by lcabanes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_H
-# define FDF_H
+#include "libft.h"
 
-# include "libft.h"
-# include "get_next_line.h"
-# include <stdio.h>
-# include <stdlib.h>
-# include <math.h>
-# include "mlx.h"
-
-typedef struct		s_point
+char	*ft_strcat(char *s1, const char *s2)
 {
-	int				x;
-	int				y;
-}					t_point;
+	size_t	i;
+	size_t	length_s1;
 
-void	fdf_usage(void);
-void	fdf_bresenham(t_point a, t_point b, void *mlx_ptr, void *win_ptr);
-
-#endif
+	length_s1 = ft_strlen(s1);
+	i = 0;
+	while (*(s2 + i) != '\0')
+	{
+		*(s1 + length_s1 + i) = *(s2 + i);
+		i++;
+	}
+	*(s1 + length_s1 + i) = '\0';
+	return (s1);
+}
