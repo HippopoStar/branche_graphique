@@ -34,11 +34,11 @@ $(NAME):
 	gcc -o $(NAME) $(CFLAGS) $(OBJS) $(LIBS)
 
 clean:
-	@make -C ./libft/ clean
+#	@make -C ./libft/ clean
 	rm -f $(OBJS)
 
 fclean: clean
-	@make -C ./libft/ fclean
+#	@make -C ./libft/ fclean
 	rm -f $(NAME)
 
 re: fclean all

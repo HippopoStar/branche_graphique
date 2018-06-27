@@ -20,6 +20,8 @@
 # include <math.h>
 # include "mlx.h"
 
+# define XK_Escape	0xFF1B
+
 typedef struct		s_point
 {
 	int				x;
