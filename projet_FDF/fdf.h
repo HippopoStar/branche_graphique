@@ -40,6 +40,9 @@ typedef struct		s_fdf
 }			t_fdf;
 
 void	fdf_usage(void);
+void	fdf_error_code(char *error_message);
 void	fdf_bresenham(t_point a, t_point b, void *mlx_ptr, void *win_ptr);
+void	fdf_init_struct(int width, int height, char *title, t_fdf **win0);
+int	fdf_deal_key(int key, void *param);
 
 #endif

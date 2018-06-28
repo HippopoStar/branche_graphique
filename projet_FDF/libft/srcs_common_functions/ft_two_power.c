@@ -1,6 +1,6 @@
 #include "libft.h"
 
-int		ft_two_power(int n);
+int		ft_two_power(int n)
 {
 	int	i;
 	int	nb;
