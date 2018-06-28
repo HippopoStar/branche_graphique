@@ -26,7 +26,18 @@ typedef struct		s_point
 {
 	int				x;
 	int				y;
-}					t_point;
+}			t_point;
+
+typedef struct		s_fdf
+{
+	void				*mlx_ptr;
+	void				*win_ptr;
+	int				ori_abs;
+	int				ori_ord;
+	int				zoom;
+	int				intensity;
+	int				color;
+}			t_fdf;
 
 void	fdf_usage(void);
 void	fdf_bresenham(t_point a, t_point b, void *mlx_ptr, void *win_ptr);
