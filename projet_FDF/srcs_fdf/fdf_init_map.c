@@ -31,21 +31,23 @@ void	fdf_split_file_lines(t_fdf *win0, t_fdf_line *last, size_t n)
 	size_t		j;
 	t_fdf_line	*line;
 
-	if (!(win0->map = (int **)malloc(n * sizeof(int *))))
+	if (!(win0->map = (int **)malloc((n + 1) * sizeof(int *))))
 	{
 		fdf_error_code("fdf_split_file_lines");
 	}
 	i = 0;
 	line = last;
-	while (i < n)
+	while (i <= n)
 	{
 		spl = ft_split_whitespaces(line->str);
 		free(line->str);
+		line = line->next;
 		fdf_convert_lines_into_map(win0, spl, n - i);
 		j = 0;
 		while (*(spl + j) != NULL)
 		{
 			free(*(spl + j));
+			j++;
 		}
 		free(spl);
 		i++;

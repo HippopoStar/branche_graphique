@@ -20,39 +20,27 @@ int	fdf_deal_key(int key, void *param)
 	return (0);
 }
 
-void	aux_fdf(int argc, char **argv, void *mlx_ptr, void *win_ptr)
-{
-	t_point	a;
-	t_point	b;
-
-	(void)argc;
-	(void)argv;
-	a.x = ft_atoi(*(argv + 0));
-	a.y = ft_atoi(*(argv + 1));
-	b.x = ft_atoi(*(argv + 2));
-	b.y = ft_atoi(*(argv + 3));
-	fdf_bresenham(a, b, mlx_ptr, win_ptr);
-}
-
-void	fdf(int argc, char **argv)
+void	fdf(char *file_name)
 {
 	t_fdf	*win0;
 
-	fdf_init_struct(500, 500, "FDF", &win0);
-	aux_fdf(argc, argv, win0->mlx_ptr, win0->win_ptr);
-	mlx_key_hook(win0->win_ptr, fdf_deal_key, (void *)win0);
-	mlx_loop(win0->mlx_ptr);
+	win0 = (t_fdf *)malloc(sizeof(t_fdf));
+//	fdf_init_struct(500, 500, "FDF", &win0);
+	fdf_init_map(file_name, win0);
+	fdf_show_map(win0);
+//	mlx_key_hook(win0->win_ptr, fdf_deal_key, (void *)win0);
+//	mlx_loop(win0->mlx_ptr);
 }
 
 int		main(int argc, char **argv)
 {
-	if (argc != 5)
+	if (argc != 2)
 	{
 		fdf_usage();
 	}
 	else
 	{
-		fdf(argc - 1, argv + 1);
+		fdf(*(argv + 1));
 	}
 	return (0);
 }
