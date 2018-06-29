@@ -22,13 +22,15 @@ SRCS = ./srcs_fdf/main.c\
        ./srcs_fdf/fdf_usage.c\
        ./srcs_fdf/fdf_error_code.c\
        ./srcs_fdf/fdf_bresenham.c\
-       ./srcs_fdf/fdf_init_struct.c
+       ./srcs_fdf/fdf_init_struct.c\
+       ./srcs_fdf/fdf_init_map.c
 
 OBJS = main.o\
        fdf_usage.o\
        fdf_error_code.o\
        fdf_bresenham.o\
-       fdf_init_struct.o
+       fdf_init_struct.o\
+       fdf_init_map.o
 
 all: $(NAME)
 
