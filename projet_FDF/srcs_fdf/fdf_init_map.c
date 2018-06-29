@@ -12,7 +12,7 @@ void	fdf_convert_lines_into_map(t_fdf *win0, char **spl, size_t i)
 	(win0->map_width == j || win0->map_width == 0) ?
 		win0->map_width = j
 		: fdf_error_code("fdf_convert_lines_into_map");
-	if (!(*(win0->map + i) = (int *)malloc((j + 1) * sizeof(int))))
+	if (!(*(win0->map + i) = (int *)malloc(j * sizeof(int))))
 	{
 		fdf_error_code("fdf_convert_lines_into_map");
 	}
@@ -31,11 +31,11 @@ void	fdf_split_file_lines(t_fdf *win0, t_fdf_line *last, size_t n)
 	size_t		j;
 	t_fdf_line	*line;
 
-	if (!(win0->map = (int **)malloc((n + 1) * sizeof(int *))))
+	if (!(win0->map = (int **)malloc(n * sizeof(int *))))
 	{
 		fdf_error_code("fdf_split_file_lines");
 	}
-	i = 0;
+	i = 1;
 	line = last;
 	while (i <= n)
 	{
@@ -67,9 +67,10 @@ void	fdf_rec_get_file_lines(int fd, t_fdf *win0, t_fdf_line *previous, size_t n)
 	}
 	else if (ret_gnl == 0)
 	{
+		free(line.str);
 		win0->map_width = 0;
 		win0->map_heigth = n;
-		fdf_split_file_lines(win0, &line, n);
+		fdf_split_file_lines(win0, &line, n + 1);
 	}
 	else
 	{
