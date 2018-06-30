@@ -20,6 +20,10 @@ void	fdf_convert_lines_into_map(t_fdf *win0, char **spl, size_t i)
 	while (j < win0->map_width)
 	{
 		*(*(win0->map + i) + j) = ft_atoi(*(spl + j));
+		if (win0->max_val < *(*(win0->map + i) + j))
+		{
+			win0->max_val = *(*(win0->map + i) + j);
+		}
 		j++;
 	}
 }

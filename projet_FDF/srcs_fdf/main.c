@@ -29,6 +29,7 @@ void	fdf(char *file_name)
 	fdf_init_map(file_name, win0);
 	fdf_show_map(win0);
 	fdf_init_pos_map(win0);
+	fdf_color_pos(win0);
 	fdf_projection(win0, fdf_iso);
 	fdf_draw(win0, win0->pos);
 	mlx_key_hook(win0->win_ptr, fdf_deal_key, (void *)win0);

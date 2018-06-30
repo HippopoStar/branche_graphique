@@ -27,6 +27,9 @@ typedef struct		s_point
 {
 	int				x;
 	int				y;
+	int				r;
+	int				g;
+	int				b;
 }			t_point;
 
 typedef struct		s_fdf
@@ -38,6 +41,7 @@ typedef struct		s_fdf
 	int				**map;
 	size_t				map_width;
 	size_t				map_height;
+	int				max_val;
 	int				zoom;
 	int				intensity;
 	t_point				**pos;
@@ -59,6 +63,7 @@ void	fdf_show_map(t_fdf *win0);
 void	fdf_init_pos_map(t_fdf *win0);
 void	fdf_projection(t_fdf *win0, void (*f)(t_point *, size_t, size_t, t_fdf *));
 void	fdf_iso(t_point *pos, size_t i, size_t j, t_fdf *win0);
+void	fdf_color_pos(t_fdf *win0);
 void	fdf_draw(t_fdf *win0, t_point **pos);
 int	fdf_deal_key(int key, void *param);
 

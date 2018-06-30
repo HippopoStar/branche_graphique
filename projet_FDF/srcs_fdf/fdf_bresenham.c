@@ -22,7 +22,8 @@ void	fdf_aux_bresenham(t_point a, t_point b, void *mlx_ptr, void *win_ptr)
 			dy = dy * 2;
 			while (a.x < b.x)
 			{
-				mlx_pixel_put(mlx_ptr, win_ptr, a.x, a.y, 0xFFFFFF);
+//				mlx_pixel_put(mlx_ptr, win_ptr, a.x, a.y, 0xFFFFFF);
+				mlx_pixel_put(mlx_ptr, win_ptr, a.x, a.y, 0xFFFFFF - ft_color((b.r - a.r) * ((b.x - a.x) / (dx / 2)), (b.g - a.g) * ((b.x - a.x) / (dx / 2)), (b.b - a.b) * ((b.x - a.x) / (dx / 2))));
 				a.x = a.x + 1;
 				e = e - dy;
 				if (e < 0)
@@ -39,7 +40,8 @@ void	fdf_aux_bresenham(t_point a, t_point b, void *mlx_ptr, void *win_ptr)
 			dx = dx * 2;
 			while (a.y < b.y)
 			{
-				mlx_pixel_put(mlx_ptr, win_ptr, a.x, a.y, 0xFFFFFF);
+//				mlx_pixel_put(mlx_ptr, win_ptr, a.x, a.y, 0xFFFFFF);
+				mlx_pixel_put(mlx_ptr, win_ptr, a.x, a.y, 0xFFFFFF - ft_color((b.r - a.r) * ((b.y - a.y) / (dx / 2)), (b.g - a.g) * ((b.y - a.y) / (dx / 2)), (b.b - a.b) * ((b.y - a.y) / (dx / 2))));
 				a.y = a.y + 1;
 				e = e - dx;
 				if (e < 0)
@@ -59,7 +61,8 @@ void	fdf_aux_bresenham(t_point a, t_point b, void *mlx_ptr, void *win_ptr)
 			dy = dy * 2;
 			while (a.x < b.x)
 			{
-				mlx_pixel_put(mlx_ptr, win_ptr, a.x, a.y, 0xFFFFFF);
+//				mlx_pixel_put(mlx_ptr, win_ptr, a.x, a.y, 0xFFFFFF);
+				mlx_pixel_put(mlx_ptr, win_ptr, a.x, a.y, 0xFFFFFF - ft_color((b.r - a.r) * ((b.x - a.x) / (dx / 2)), (b.g - a.g) * ((b.x - a.x) / (dx / 2)), (b.b - a.b) * ((b.x - a.x) / (dx / 2))));
 				a.x = a.x + 1;
 				e = e + dy;
 				if (e < 0)
@@ -76,7 +79,8 @@ void	fdf_aux_bresenham(t_point a, t_point b, void *mlx_ptr, void *win_ptr)
 			dx = dx * 2;
 			while (a.y > b.y)
 			{
-				mlx_pixel_put(mlx_ptr, win_ptr, a.x, a.y, 0xFFFFFF);
+//				mlx_pixel_put(mlx_ptr, win_ptr, a.x, a.y, 0xFFFFFF);
+				mlx_pixel_put(mlx_ptr, win_ptr, a.x, a.y, 0xFFFFFF - ft_color((b.r - a.r) * ((a.y - b.y) / (dx / 2)), (b.g - a.g) * ((a.y - b.y) / (dx / 2)), (b.b - a.b) * ((a.y - b.y) / (dx / 2))));
 				a.y = a.y - 1;
 				e = e + dx;
 				if (e > 0)
@@ -91,7 +95,8 @@ void	fdf_aux_bresenham(t_point a, t_point b, void *mlx_ptr, void *win_ptr)
 	{
 		while (a.x < b.x)
 		{
-			mlx_pixel_put(mlx_ptr, win_ptr, a.x, a.y, 0xFFFFFF);
+//			mlx_pixel_put(mlx_ptr, win_ptr, a.x, a.y, 0xFFFFFF);
+			mlx_pixel_put(mlx_ptr, win_ptr, a.x, a.y, 0xFFFFFF - ft_color((b.r - a.r) * ((b.x - a.x) / (dx / 2)), (b.g - a.g) * ((b.x - a.x) / (dx / 2)), (b.b - a.b) * ((b.x - a.x) / (dx / 2))));
 			a.x = a.x + 1;
 		}
 	}
