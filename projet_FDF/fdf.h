@@ -46,6 +46,9 @@ typedef struct		s_fdf
 	int				intensity;
 	t_point				**pos;
 	int				color;
+	int				r0;
+	int				g0;
+	int				b0;
 }			t_fdf;
 
 typedef struct		s_fdf_line

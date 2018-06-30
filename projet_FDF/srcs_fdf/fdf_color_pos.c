@@ -1,32 +1,35 @@
 #include "fdf.h"
 
+void	fdf_aux_color_pos(t_point *p, int val, t_fdf *win0)
+{
+	if (val > 0)
+	{
+		(*p).r = 255 - ((255 - win0->r0) * val) / win0->max_val;
+		(*p).g = 255 - ((255 - win0->g0) * val) / win0->max_val;
+		(*p).b = 255 - ((255 - win0->b0) * val) / win0->max_val;
+	}
+	else
+	{
+		(*p).r = 255;
+		(*p).g = 255;
+		(*p).b = 255;
+	}
+}
+
 void	fdf_color_pos(t_fdf *win0)
 {
-	int	r0;
-	int	g0;
-	int	b0;
+	t_point	*p;
 	size_t	i;
 	size_t	j;
 
-	ft_break_color_down(&r0, &g0, &b0, win0->color);
 	i = 0;
 	while (i < win0->map_height)
 	{
 		j = 0;
 		while (j < win0->map_width)
 		{
-			if (*(*(win0->map + i) + j) > 0)
-			{
-				(*(*(win0->pos + i) + j)).r = 255 - ((255 - r0) * *(*(win0->map + i) + j)) / win0->max_val;
-				(*(*(win0->pos + i) + j)).g = 255 - ((255 - g0) * *(*(win0->map + i) + j)) / win0->max_val;
-				(*(*(win0->pos + i) + j)).b = 255 - ((255 - b0) * *(*(win0->map + i) + j)) / win0->max_val;
-			}
-			else
-			{
-				(*(*(win0->pos + i) + j)).r = 255;
-				(*(*(win0->pos + i) + j)).g = 255;
-				(*(*(win0->pos + i) + j)).b = 255;
-			}
+			p = &(*(*(win0->pos + i) + j));
+			fdf_aux_color_pos(p, *(*(win0->map + i) + j), win0);
 			j++;
 		}
 		i++;
