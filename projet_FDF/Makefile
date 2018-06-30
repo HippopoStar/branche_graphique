@@ -24,7 +24,10 @@ SRCS = ./srcs_fdf/main.c\
        ./srcs_fdf/fdf_bresenham.c\
        ./srcs_fdf/fdf_init_struct.c\
        ./srcs_fdf/fdf_init_map.c\
-       ./srcs_fdf/fdf_show_map.c
+       ./srcs_fdf/fdf_show_map.c\
+       ./srcs_fdf/fdf_init_pos_map.c\
+       ./srcs_fdf/fdf_projection.c\
+       ./srcs_fdf/fdf_draw.c
 
 OBJS = main.o\
        fdf_usage.o\
@@ -32,7 +35,10 @@ OBJS = main.o\
        fdf_bresenham.o\
        fdf_init_struct.o\
        fdf_init_map.o\
-       fdf_show_map.o
+       fdf_show_map.o\
+       fdf_init_pos_map.o\
+       fdf_projection.o\
+       fdf_draw.o
 
 all: $(NAME)
 

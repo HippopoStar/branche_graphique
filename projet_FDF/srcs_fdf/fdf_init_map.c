@@ -69,8 +69,8 @@ void	fdf_rec_get_file_lines(int fd, t_fdf *win0, t_fdf_line *previous, size_t n)
 	{
 		free(line.str);
 		win0->map_width = 0;
-		win0->map_heigth = n;
-		fdf_split_file_lines(win0, &line, n + 1);
+		win0->map_height = n;
+		fdf_split_file_lines(win0, line.next, n);
 	}
 	else
 	{

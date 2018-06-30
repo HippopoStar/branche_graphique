@@ -37,9 +37,10 @@ typedef struct		s_fdf
 	int				ori_ord;
 	int				**map;
 	size_t				map_width;
-	size_t				map_heigth;
+	size_t				map_height;
 	int				zoom;
 	int				intensity;
+	t_point				**pos;
 	int				color;
 }			t_fdf;
 
@@ -55,6 +56,10 @@ void	fdf_bresenham(t_point a, t_point b, void *mlx_ptr, void *win_ptr);
 void	fdf_init_struct(int width, int height, char *title, t_fdf **win0);
 void	fdf_init_map(char *file_name, t_fdf *win0);
 void	fdf_show_map(t_fdf *win0);
+void	fdf_init_pos_map(t_fdf *win0);
+void	fdf_projection(t_fdf *win0, void (*f)(t_point *, size_t, size_t, t_fdf *));
+void	fdf_iso(t_point *pos, size_t i, size_t j, t_fdf *win0);
+void	fdf_draw(t_fdf *win0, t_point **pos);
 int	fdf_deal_key(int key, void *param);
 
 #endif
