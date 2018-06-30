@@ -1,7 +1,7 @@
 #include "libft.h"
 
 /*
-** La fonction 'ft_color' renvoie l'entier correspondant au code couleur
+** La fonction 'ft_melt_colors' renvoie l'entier correspondant au code couleur
 ** exprime par les niveaux d'intensite (0 ~ 255) des 3 couleurs primaires
 ** passees en parametre, dans le format suivant :
 ** | 0 | R | G | B |
@@ -13,7 +13,7 @@
 ** [0000 0000 | 0000 0000 | 0000 0000 | 0000 0001] = 2^(0)	= 1
 */
 
-int		ft_color(int red, int green, int blue)
+int		ft_melt_colors(int red, int green, int blue)
 {
 	return ((65536 * red) + (256 * green) + blue);
 }

@@ -1,6 +1,6 @@
 #include "libft.h"
 
-void	ft_separate_color(int *red, int *green, int *blue, int color)
+void	ft_break_color_down(int *red, int *green, int *blue, int color)
 {
 	color = color % 0x1000000;
 	*red = color / 0x010000;

@@ -12,5 +12,5 @@ void	fdf_init_struct(int width, int height, char *title, t_fdf **win0)
 	(*win0)->ori_ord = 30;
 	(*win0)->zoom = 30;
 	(*win0)->intensity = 1;
-	(*win0)->color = ft_color(63, 191, 191);
+	(*win0)->color = ft_melt_colors(0, 255, 255);
 }

@@ -13,7 +13,7 @@ int	fdf_deal_key(int key, void *param)
 	}
 	if ('a' <= key && key <= 'z')
 	{
-		mlx_pixel_put(win0->mlx_ptr, win0->win_ptr, (0 + key), (500 - key), ft_color(0, 255, 50));
+		mlx_pixel_put(win0->mlx_ptr, win0->win_ptr, (0 + key), (500 - key), ft_melt_colors(0, 255, 50));
 		ft_putchar(key);
 		ft_putchar(' ');
 	}

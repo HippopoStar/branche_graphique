@@ -80,8 +80,8 @@ SRCS = ./srcs_libft/ft_memset.c\
 		./srcs_common_functions/ft_putnbr_base.c\
 		./srcs_common_functions/ft_split_whitespaces.c\
 		./srcs_common_functions/ft_two_power.c\
-		./srcs_common_functions/ft_color.c\
-		./srcs_common_functions/ft_separate_color.c
+		./srcs_common_functions/ft_melt_colors.c\
+		./srcs_common_functions/ft_break_color_down.c
 
 OBJS = ft_memset.o\
 		ft_bzero.o\
@@ -148,8 +148,8 @@ OBJS = ft_memset.o\
 		ft_putnbr_base.o\
 		ft_split_whitespaces.o\
 		ft_two_power.o\
-		ft_color.o\
-		ft_separate_color.o
+		ft_melt_colors.o\
+		ft_break_color_down.o
 
 all: $(NAME)
 
