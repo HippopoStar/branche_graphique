@@ -1,5 +1,22 @@
 #include "fdf.h"
 
+int	fdf_gradation(t_point cur, t_point des, int cur_dist, int tot_dist)
+{
+	int	color;
+	int	red_diff;
+	int	green_diff;
+	int	blue_diff;
+
+	red_diff = des.r - cur.r;
+	green_diff = des.g - cur.g;
+	blue_diff = des.b - cur.b;
+	color = 0;
+	color = color + (cur.r + ((red_diff * (tot_dist - cur_dist)) / tot_dist));
+	color = color + (cur.g + ((green_diff * (tot_dist - cur_dist)) / tot_dist));
+	color = color + (cur.b + ((blue_diff * (tot_dist - cur_dist)) / tot_dist));
+	return (color);
+}
+
 /*
 ** Lors de l'appel de 'fdf_aux_bresenham', on a dors et deja
 ** l'assurance d'avoir [a, b] non vertical et {a} a gauche de {b}
@@ -23,7 +40,7 @@ void	fdf_aux_bresenham(t_point a, t_point b, void *mlx_ptr, void *win_ptr)
 			while (a.x < b.x)
 			{
 //				mlx_pixel_put(mlx_ptr, win_ptr, a.x, a.y, 0xFFFFFF);
-				mlx_pixel_put(mlx_ptr, win_ptr, a.x, a.y, 0xFFFFFF - ft_color(a.r + ((b.r - a.r) * ((b.x - a.x) / (dx / 2))), a.g + ((b.g - a.g) * ((b.x - a.x) / (dx / 2))), a.b + ((b.b - a.b) * ((b.x - a.x) / (dx / 2)))));
+				mlx_pixel_put(mlx_ptr, win_ptr, a.x, a.y, fdf_gradation(a, b, b.x - a.x, dx / 2));
 				a.x = a.x + 1;
 				e = e - dy;
 				if (e < 0)
@@ -41,7 +58,7 @@ void	fdf_aux_bresenham(t_point a, t_point b, void *mlx_ptr, void *win_ptr)
 			while (a.y < b.y)
 			{
 //				mlx_pixel_put(mlx_ptr, win_ptr, a.x, a.y, 0xFFFFFF);
-				mlx_pixel_put(mlx_ptr, win_ptr, a.x, a.y, 0xFFFFFF - ft_color(a.r + ((b.r - a.r) * ((b.y - a.y) / (dx / 2))), a.g + ((b.g - a.g) * ((b.y - a.y) / (dx / 2))), a.b + ((b.b - a.b) * ((b.y - a.y) / (dx / 2)))));
+				mlx_pixel_put(mlx_ptr, win_ptr, a.x, a.y, fdf_gradation(a, b, b.y - a.y, dy / 2));
 				a.y = a.y + 1;
 				e = e - dx;
 				if (e < 0)
@@ -62,7 +79,7 @@ void	fdf_aux_bresenham(t_point a, t_point b, void *mlx_ptr, void *win_ptr)
 			while (a.x < b.x)
 			{
 //				mlx_pixel_put(mlx_ptr, win_ptr, a.x, a.y, 0xFFFFFF);
-				mlx_pixel_put(mlx_ptr, win_ptr, a.x, a.y, 0xFFFFFF - ft_color(a.r + ((b.r - a.r) * ((b.x - a.x) / (dx / 2))), a.g + ((b.g - a.g) * ((b.x - a.x) / (dx / 2))), a.b + ((b.b - a.b) * ((b.x - a.x) / (dx / 2)))));
+				mlx_pixel_put(mlx_ptr, win_ptr, a.x, a.y, fdf_gradation(a, b, b.x - a.x, dx / 2));
 				a.x = a.x + 1;
 				e = e + dy;
 				if (e < 0)
@@ -80,7 +97,7 @@ void	fdf_aux_bresenham(t_point a, t_point b, void *mlx_ptr, void *win_ptr)
 			while (a.y > b.y)
 			{
 //				mlx_pixel_put(mlx_ptr, win_ptr, a.x, a.y, 0xFFFFFF);
-				mlx_pixel_put(mlx_ptr, win_ptr, a.x, a.y, 0xFFFFFF - ft_color(a.r + ((b.r - a.r) * ((a.y - b.y) / (dx / 2))), a.g + ((b.g - a.g) * ((a.y - b.y) / (dx / 2))), a.b + ((b.b - a.b) * ((a.y - b.y) / (dx / 2)))));
+				mlx_pixel_put(mlx_ptr, win_ptr, a.x, a.y, fdf_gradation(a, b, b.y - a.y, dy / 2));
 				a.y = a.y - 1;
 				e = e + dx;
 				if (e > 0)
@@ -96,7 +113,7 @@ void	fdf_aux_bresenham(t_point a, t_point b, void *mlx_ptr, void *win_ptr)
 		while (a.x < b.x)
 		{
 //			mlx_pixel_put(mlx_ptr, win_ptr, a.x, a.y, 0xFFFFFF);
-			mlx_pixel_put(mlx_ptr, win_ptr, a.x, a.y, 0xFFFFFF - ft_color(a.r + ((b.r - a.r) * ((b.x - a.x) / (dx / 2))), a.g + ((b.g - a.g) * ((b.x - a.x) / (dx / 2))), a.b + ((b.b - a.b) * ((b.x - a.x) / (dx / 2)))));
+			mlx_pixel_put(mlx_ptr, win_ptr, a.x, a.y, fdf_gradation(a, b, b.x - a.x, dx));
 			a.x = a.x + 1;
 		}
 	}

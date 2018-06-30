@@ -15,9 +15,12 @@ void	fdf_color_pos(t_fdf *win0)
 		j = 0;
 		while (j < win0->map_width)
 		{
-			(*(*(win0->pos + i) + j)).r = /*255 -*/ ((*(*(win0->map + i) + j) / win0->max_val) * r0);
-			(*(*(win0->pos + i) + j)).g = /*255 -*/ ((*(*(win0->map + i) + j) / win0->max_val) * g0);
-			(*(*(win0->pos + i) + j)).b = /*255 -*/ ((*(*(win0->map + i) + j) / win0->max_val) * b0);
+			if (*(*(win0->map + i) + j) != 0)
+			{
+				(*(*(win0->pos + i) + j)).r = ((*(*(win0->map + i) + j) / win0->max_val) * r0);
+				(*(*(win0->pos + i) + j)).g = ((*(*(win0->map + i) + j) / win0->max_val) * g0);
+				(*(*(win0->pos + i) + j)).b = ((*(*(win0->map + i) + j) / win0->max_val) * b0);
+			}
 			j++;
 		}
 		i++;
