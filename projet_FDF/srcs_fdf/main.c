@@ -14,6 +14,7 @@ void	fdf(char *file_name)
 	fdf_draw(win0, win0->pos);
 	fdf_color_range(win0->mlx_ptr, win0->win_ptr, 5, 5);
 	mlx_key_hook(win0->win_ptr, fdf_deal_key, (void *)win0);
+	mlx_mouse_hook(win0->win_ptr, fdf_deal_mouse, (void *)win0);
 	mlx_loop(win0->mlx_ptr);
 }
 

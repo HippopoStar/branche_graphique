@@ -21,10 +21,11 @@
 # include <math.h>
 # include "mlx.h"
 
-# define WIN0_TITLE	"FDF"
-# define WIN0_SX	720
-# define WIN0_SY	480
-# define MLX_Escape	0xFF1B
+# define WIN0_TITLE		"FDF"
+# define WIN0_SX		720
+# define WIN0_SY		480
+# define MLX_Escape		0xFF1B
+# define MLX_Pointer_Button1	0x0001
 
 typedef struct		s_point
 {
@@ -75,7 +76,9 @@ void	fdf_allocate_to_pos(t_fdf *win0);
 void	fdf_projection(t_fdf *win0, void (*f)(t_point *, size_t, size_t, t_fdf *));
 void	fdf_iso(t_point *pos, size_t i, size_t j, t_fdf *win0);
 void	fdf_color_pos(t_fdf *win0);
+int	fdf_pick_a_color(int m_button, int m_x, int m_y, t_fdf *win0);
 void	fdf_draw(t_fdf *win0, t_point **pos);
 int	fdf_deal_key(int key, void *param);
+int	fdf_deal_mouse(int button, int mouse_x, int mouse_y, void *param);
 
 #endif
