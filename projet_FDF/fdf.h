@@ -27,6 +27,7 @@ typedef struct		s_point
 {
 	int				x;
 	int				y;
+	int				prime;
 	int				r;
 	int				g;
 	int				b;
@@ -61,6 +62,8 @@ void	fdf_usage(void);
 void	fdf_error_code(char *error_message);
 void	fdf_bresenham(t_point a, t_point b, void *mlx_ptr, void *win_ptr);
 int	fdf_gradation(t_point cur, t_point des, int cur_dist, int tot_dist);
+int	fdf_prime_improvement(t_point *a, t_point *b);
+void	fdf_assign_a_prime_number(t_point *p);
 void	fdf_init_struct(int width, int height, char *title, t_fdf **win0);
 void	fdf_color_range(void *mlx_ptr, void *win_ptr, int x0, int y0);
 void	fdf_init_map(char *file_name, t_fdf *win0);

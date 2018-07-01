@@ -23,6 +23,7 @@ SRCS = ./srcs_fdf/main.c\
        ./srcs_fdf/fdf_error_code.c\
        ./srcs_fdf/fdf_bresenham.c\
        ./srcs_fdf/fdf_gradation.c\
+       ./srcs_fdf/fdf_prime_improvement.c\
        ./srcs_fdf/fdf_init_struct.c\
        ./srcs_fdf/fdf_color_range.c\
        ./srcs_fdf/fdf_init_map.c\
@@ -37,6 +38,7 @@ OBJS = main.o\
        fdf_error_code.o\
        fdf_bresenham.o\
        fdf_gradation.o\
+       fdf_prime_improvement.o\
        fdf_init_struct.o\
        fdf_color_range.o\
        fdf_init_map.o\
