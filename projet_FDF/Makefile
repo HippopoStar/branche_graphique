@@ -25,7 +25,7 @@ SRCS = ./srcs_fdf/main.c\
        ./srcs_fdf/fdf_gradation.c\
        ./srcs_fdf/fdf_prime_improvement.c\
        ./srcs_fdf/fdf_init_struct.c\
-       ./srcs_fdf/fdf_color_range.c\
+       ./srcs_fdf/fdf_color_palette.c\
        ./srcs_fdf/fdf_init_map.c\
        ./srcs_fdf/fdf_show_map.c\
        ./srcs_fdf/fdf_allocate_to_pos.c\
@@ -33,7 +33,9 @@ SRCS = ./srcs_fdf/main.c\
        ./srcs_fdf/fdf_color_pos.c\
        ./srcs_fdf/fdf_draw.c\
        ./srcs_fdf/fdf_deal_key.c\
-       ./srcs_fdf/fdf_deal_mouse.c
+       ./srcs_fdf/fdf_deal_mouse.c\
+       ./srcs_fdf/fdf_zoom.c\
+       ./srcs_fdf/fdf_intensity.c
 
 OBJS = main.o\
        fdf_usage.o\
@@ -42,7 +44,7 @@ OBJS = main.o\
        fdf_gradation.o\
        fdf_prime_improvement.o\
        fdf_init_struct.o\
-       fdf_color_range.o\
+       fdf_color_palette.o\
        fdf_init_map.o\
        fdf_show_map.o\
        fdf_allocate_to_pos.o\
@@ -50,7 +52,9 @@ OBJS = main.o\
        fdf_color_pos.o\
        fdf_draw.o\
        fdf_deal_key.o\
-       fdf_deal_mouse.o
+       fdf_deal_mouse.o\
+       fdf_zoom.o\
+       fdf_intensity.o
 
 all: $(NAME)
 

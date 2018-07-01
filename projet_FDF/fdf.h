@@ -24,8 +24,15 @@
 # define WIN0_TITLE		"FDF"
 # define WIN0_SX		720
 # define WIN0_SY		480
+# define CP_X0			5
+# define CP_Y0			5
 # define MLX_Escape		0xFF1B
+# define MLX_D			0x0064
+# define MLX_U			0x0075
 # define MLX_Pointer_Button1	0x0001
+# define MLX_Pointer_Button2	0x0002
+# define MLX_Pointer_Button4	0x0004
+# define MLX_Pointer_Button5	0x0005
 
 typedef struct		s_point
 {
@@ -69,7 +76,7 @@ int	fdf_gradation(t_point cur, t_point des, int cur_dist, int tot_dist);
 int	fdf_prime_improvement(t_point *a, t_point *b);
 void	fdf_assign_a_prime_number(t_point *p);
 void	fdf_init_struct(int width, int height, char *title, t_fdf **win0);
-void	fdf_color_range(void *mlx_ptr, void *win_ptr, int x0, int y0);
+void	fdf_color_palette(void *mlx_ptr, void *win_ptr, int x0, int y0);
 void	fdf_init_map(char *file_name, t_fdf *win0);
 void	fdf_show_map(t_fdf *win0);
 void	fdf_allocate_to_pos(t_fdf *win0);
@@ -78,7 +85,10 @@ void	fdf_iso(t_point *pos, size_t i, size_t j, t_fdf *win0);
 void	fdf_color_pos(t_fdf *win0);
 int	fdf_pick_a_color(int m_button, int m_x, int m_y, t_fdf *win0);
 void	fdf_draw(t_fdf *win0, t_point **pos);
+void	fdf_redraw(t_fdf *win0);
 int	fdf_deal_key(int key, void *param);
 int	fdf_deal_mouse(int button, int mouse_x, int mouse_y, void *param);
+void	fdf_zoom(int button, t_fdf *win0);
+void	fdf_intensity(int key, t_fdf *win0);
 
 #endif

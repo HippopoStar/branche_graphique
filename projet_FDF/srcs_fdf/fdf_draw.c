@@ -26,3 +26,10 @@ void	fdf_draw(t_fdf *win0, t_point **pos)
 		i++;
 	}
 }
+
+void	fdf_redraw(t_fdf *win0)
+{
+	mlx_clear_window(win0->mlx_ptr, win0->win_ptr);
+	fdf_draw(win0, win0->pos);
+	fdf_color_palette(win0->mlx_ptr, win0->win_ptr, CP_X0, CP_Y0);
+}
