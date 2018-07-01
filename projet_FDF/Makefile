@@ -28,10 +28,11 @@ SRCS = ./srcs_fdf/main.c\
        ./srcs_fdf/fdf_color_range.c\
        ./srcs_fdf/fdf_init_map.c\
        ./srcs_fdf/fdf_show_map.c\
-       ./srcs_fdf/fdf_init_pos_map.c\
+       ./srcs_fdf/fdf_allocate_to_pos.c\
        ./srcs_fdf/fdf_projection.c\
        ./srcs_fdf/fdf_color_pos.c\
-       ./srcs_fdf/fdf_draw.c
+       ./srcs_fdf/fdf_draw.c\
+       ./srcs_fdf/fdf_deal_key.c
 
 OBJS = main.o\
        fdf_usage.o\
@@ -43,10 +44,11 @@ OBJS = main.o\
        fdf_color_range.o\
        fdf_init_map.o\
        fdf_show_map.o\
-       fdf_init_pos_map.o\
+       fdf_allocate_to_pos.o\
        fdf_projection.o\
        fdf_color_pos.o\
-       fdf_draw.o
+       fdf_draw.o\
+       fdf_deal_key.o
 
 all: $(NAME)
 

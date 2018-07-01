@@ -43,13 +43,13 @@ void	fdf_assign_a_prime_number(t_point *p)
 
 	if (p->x < 0)
 		a = 5;
-	else if (p->x < 720)
+	else if (p->x < WIN0_SX)
 		a = 1;
 	else
 		a = 13;
 	if (p->y < 0)
 		b = 7;
-	else if (p->y < 480)
+	else if (p->y < WIN0_SY)
 		b = 1;
 	else
 		b = 11;
@@ -66,7 +66,7 @@ int	fdf_prime_improvement(t_point *a, t_point *b)
 		return (1);
 	}
 	else if (coef % 7 == 0 || coef % 11 == 0 || coef % 13 == 0
-			|| (coef % 5 == 0 && a->prime != 7 && a->prime != 13))
+			|| (coef % 5 == 0 && !(a->prime == 7 || a->prime == 13)))
 	{
 		return (0);
 	}

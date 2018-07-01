@@ -1,34 +1,14 @@
 #include "fdf.h"
 
-int	fdf_deal_key(int key, void *param)
-{
-	t_fdf	*win0;
-
-	win0 = (t_fdf *)param;
-	if (key == XK_Escape)
-	{
-		mlx_destroy_window(win0->mlx_ptr, win0->win_ptr);
-		free(win0);
-		exit (0);
-	}
-	if ('a' <= key && key <= 'z')
-	{
-		mlx_pixel_put(win0->mlx_ptr, win0->win_ptr, (0 + key), (500 - key), ft_melt_colors(0, 255, 50));
-		ft_putchar(key);
-		ft_putchar(' ');
-	}
-	return (0);
-}
-
 void	fdf(char *file_name)
 {
 	t_fdf	*win0;
 
 	win0 = (t_fdf *)malloc(sizeof(t_fdf));
-	fdf_init_struct(720, 480, "FDF", &win0);
+	fdf_init_struct(WIN0_SX, WIN0_SY, WIN0_TITLE, &win0);
 	fdf_init_map(file_name, win0);
 	fdf_show_map(win0);
-	fdf_init_pos_map(win0);
+	fdf_allocate_to_pos(win0);
 	fdf_color_pos(win0);
 	fdf_projection(win0, fdf_iso);
 	fdf_draw(win0, win0->pos);

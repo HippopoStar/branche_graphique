@@ -1,6 +1,6 @@
 #include "fdf.h"
 
-void	fdf_init_pos_map(t_fdf *win0)
+void	fdf_allocate_to_pos(t_fdf *win0)
 {
 	size_t	i;
 

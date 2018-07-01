@@ -93,5 +93,9 @@ void	fdf_init_map(char *file_name, t_fdf *win0)
 	else
 	{
 		fdf_rec_get_file_lines(fd, win0, NULL, 0);
+		if (close(fd) == -1)
+		{
+			fdf_error_code("fdf_init_map");
+		}
 	}
 }

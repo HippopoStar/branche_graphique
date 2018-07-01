@@ -21,7 +21,10 @@
 # include <math.h>
 # include "mlx.h"
 
-# define XK_Escape	0xFF1B
+# define WIN0_TITLE	"FDF"
+# define WIN0_SX	720
+# define WIN0_SY	480
+# define MLX_Escape	0xFF1B
 
 typedef struct		s_point
 {
@@ -68,7 +71,7 @@ void	fdf_init_struct(int width, int height, char *title, t_fdf **win0);
 void	fdf_color_range(void *mlx_ptr, void *win_ptr, int x0, int y0);
 void	fdf_init_map(char *file_name, t_fdf *win0);
 void	fdf_show_map(t_fdf *win0);
-void	fdf_init_pos_map(t_fdf *win0);
+void	fdf_allocate_to_pos(t_fdf *win0);
 void	fdf_projection(t_fdf *win0, void (*f)(t_point *, size_t, size_t, t_fdf *));
 void	fdf_iso(t_point *pos, size_t i, size_t j, t_fdf *win0);
 void	fdf_color_pos(t_fdf *win0);
