@@ -1,8 +1,8 @@
 #include "fdf.h"
 
-void	fdf_draw_two_last_lines(t_fdf *win0, t_point **pos, int width, int height)
+void	fdf_draw_two_last_lines(t_fdf *win0, t_point **pos, size_t width, size_t height)
 {
-	int	i;
+	size_t	i;
 	t_point	*p0;
 	t_point	*p1;
 
@@ -11,10 +11,7 @@ void	fdf_draw_two_last_lines(t_fdf *win0, t_point **pos, int width, int height)
 	{
 		p1 = &(*(*(pos + i + 1) + width));
 		p0 = &(*(*(pos + i) + width));
-		if (fdf_prime_improvement(p0, p1))
-		{
-			fdf_bresenham(*p0, *p1, win0->mlx_ptr, win0->win_ptr);
-		}
+		fdf_bresenham(p0, p1, win0->mlx_ptr, win0->win_ptr);
 		i++;
 	}
 	i = 0;
@@ -22,24 +19,15 @@ void	fdf_draw_two_last_lines(t_fdf *win0, t_point **pos, int width, int height)
 	{
 		p0 = &(*(*(pos + height) + i));
 		p1 = &(*(*(pos + height) + i + 1));
-		if (fdf_prime_improvement(p0, p1))
-		{
-			fdf_bresenham(*p0, *p1, win0->mlx_ptr, win0->win_ptr);
-		}
+		fdf_bresenham(p0, p1, win0->mlx_ptr, win0->win_ptr);
 		i++;
 	}
 }
 
 void	fdf_aux_draw(t_point *p, t_point *p_hor, t_point *p_ver, t_fdf *win0)
 {
-	if (fdf_prime_improvement(p, p_hor))
-	{
-		fdf_bresenham(*p, *p_hor, win0->mlx_ptr, win0->win_ptr);
-	}
-	if (fdf_prime_improvement(p, p_ver))
-	{
-		fdf_bresenham(*p, *p_ver, win0->mlx_ptr, win0->win_ptr);
-	}
+	fdf_bresenham(p, p_hor, win0->mlx_ptr, win0->win_ptr);
+	fdf_bresenham(p, p_ver, win0->mlx_ptr, win0->win_ptr);
 }
 
 void	fdf_draw(t_fdf *win0, t_point **pos)

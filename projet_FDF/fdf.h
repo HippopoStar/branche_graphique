@@ -26,6 +26,7 @@
 # define WIN0_SY		480
 # define CP_X0			5
 # define CP_Y0			5
+# define CROSS_SIZE		3
 # define MLX_Escape		0xFF1B
 # define MLX_D			0x0064
 # define MLX_U			0x0075
@@ -73,7 +74,7 @@ typedef struct		s_fdf_line
 
 void	fdf_usage(void);
 void	fdf_error_code(char *error_message);
-void	fdf_bresenham(t_point a, t_point b, void *mlx_ptr, void *win_ptr);
+void	fdf_bresenham(t_point *a, t_point *b, void *mlx_ptr, void *win_ptr);
 int	fdf_gradation(t_point cur, t_point des, int cur_dist, int tot_dist);
 int	fdf_prime_improvement(t_point *a, t_point *b);
 void	fdf_assign_a_prime_number(t_point *p);
@@ -94,5 +95,6 @@ int	fdf_deal_mouse(int button, int mouse_x, int mouse_y, void *param);
 void	fdf_zoom(int button, t_fdf *win0);
 void	fdf_intensity(int key, t_fdf *win0);
 void	fdf_deplace(int button, int m_x, int m_y, t_fdf *win0);
+void	fdf_cross(int x0, int y0, int color, t_fdf *win0);
 
 #endif

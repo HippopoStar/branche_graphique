@@ -2,8 +2,10 @@
 
 void	fdf_redraw_color(int x_val, int y_val, t_fdf *win0)
 {
-	win0->color = ft_melt_colors(255- (2 * x_val), 2 * y_val, 2 * x_val);
+	fdf_cross(CP_X0 + (win0->b0 / 2), CP_Y0 + (win0->g0 / 2), 0xFFFFFF, win0);
+	win0->color = ft_melt_colors(255 - (2 * x_val), 2 * y_val, 2 * x_val);
 	ft_break_color_down(&(win0->r0), &(win0->g0), &(win0->b0), win0->color);
+	fdf_cross(CP_X0 + (win0->b0 / 2), CP_Y0 + (win0->g0 / 2), 0x000000, win0);
 	fdf_color_pos(win0);
 	fdf_draw(win0, win0->pos);
 }

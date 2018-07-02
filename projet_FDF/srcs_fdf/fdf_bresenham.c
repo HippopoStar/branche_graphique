@@ -1,11 +1,11 @@
 #include "fdf.h"
 
 /*
-** Lors de l'appel de 'fdf_aux_bresenham', on a dors et deja
+** Lors de l'appel de 'fdf_aux1_bresenham', on a dors et deja
 ** l'assurance d'avoir [a, b] non vertical et {a} a gauche de {b}
 */
 
-void	fdf_aux_bresenham(t_point a, t_point b, void *mlx_ptr, void *win_ptr)
+void	fdf_aux1_bresenham(t_point a, t_point b, void *mlx_ptr, void *win_ptr)
 {
 	int		dx;
 	int		dy;
@@ -103,7 +103,7 @@ void	fdf_aux_bresenham(t_point a, t_point b, void *mlx_ptr, void *win_ptr)
 }
 
 /*
-** La fonction 'fdf_bresenham', selon les caracteristiques du segment [a, b] :
+** La fonction 'fdf_aux0_bresenham', selon les caracteristiques du segment [a, b] :
 ** - ne fait rien si {a} et {b} confondus
 ** - trace [a, b] si a->b vertical oriente vers le bas
 ** - se rappelle elle-meme en intervertissant {a} et {b} si a->b vertical oriente vers le haut
@@ -111,7 +111,7 @@ void	fdf_aux_bresenham(t_point a, t_point b, void *mlx_ptr, void *win_ptr)
 ** - appelle 'fdf_aux_bresenham' en intervertissant {a} et {b} si a->b non vertical oriente vers la gauche
 */
 
-void	fdf_bresenham(t_point a, t_point b, void *mlx_ptr, void *win_ptr)
+void	fdf_aux0_bresenham(t_point a, t_point b, void *mlx_ptr, void *win_ptr)
 {
 	int		dx;
 	int		dy;
@@ -120,8 +120,8 @@ void	fdf_bresenham(t_point a, t_point b, void *mlx_ptr, void *win_ptr)
 	dy = b.y - a.y;
 	if (dx != 0)
 	{
-		(dx > 0) ? fdf_aux_bresenham(a, b, mlx_ptr, win_ptr)
-			: fdf_aux_bresenham(b, a, mlx_ptr, win_ptr);
+		(dx > 0) ? fdf_aux1_bresenham(a, b, mlx_ptr, win_ptr)
+			: fdf_aux1_bresenham(b, a, mlx_ptr, win_ptr);
 	}
 	else
 	{
@@ -135,7 +135,15 @@ void	fdf_bresenham(t_point a, t_point b, void *mlx_ptr, void *win_ptr)
 		}
 		else if (dy < 0)
 		{
-			fdf_bresenham(b, a, mlx_ptr, win_ptr);
+			fdf_aux0_bresenham(b, a, mlx_ptr, win_ptr);
 		}
+	}
+}
+
+void	fdf_bresenham(t_point *a, t_point *b, void *mlx_ptr, void *win_ptr)
+{
+	if (fdf_prime_improvement(a, b))
+	{
+		fdf_aux0_bresenham(*a, *b, mlx_ptr, win_ptr);
 	}
 }
