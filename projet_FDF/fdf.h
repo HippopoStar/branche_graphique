@@ -30,7 +30,7 @@
 # define MLX_D			0x0064
 # define MLX_U			0x0075
 # define MLX_Pointer_Button1	0x0001
-# define MLX_Pointer_Button2	0x0002
+# define MLX_Pointer_Button3	0x0003
 # define MLX_Pointer_Button4	0x0004
 # define MLX_Pointer_Button5	0x0005
 
@@ -56,6 +56,8 @@ typedef struct		s_fdf
 	int				max_val;
 	int				zoom;
 	int				intensity;
+	int				depla_x;
+	int				depla_y;
 	t_point				**pos;
 	int				color;
 	int				r0;
@@ -86,9 +88,11 @@ void	fdf_color_pos(t_fdf *win0);
 int	fdf_pick_a_color(int m_button, int m_x, int m_y, t_fdf *win0);
 void	fdf_draw(t_fdf *win0, t_point **pos);
 void	fdf_redraw(t_fdf *win0);
+void	fdf_redraw_full(t_fdf *win0);
 int	fdf_deal_key(int key, void *param);
 int	fdf_deal_mouse(int button, int mouse_x, int mouse_y, void *param);
 void	fdf_zoom(int button, t_fdf *win0);
 void	fdf_intensity(int key, t_fdf *win0);
+void	fdf_deplace(int button, int m_x, int m_y, t_fdf *win0);
 
 #endif

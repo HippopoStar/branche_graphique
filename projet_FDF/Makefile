@@ -35,7 +35,8 @@ SRCS = ./srcs_fdf/main.c\
        ./srcs_fdf/fdf_deal_key.c\
        ./srcs_fdf/fdf_deal_mouse.c\
        ./srcs_fdf/fdf_zoom.c\
-       ./srcs_fdf/fdf_intensity.c
+       ./srcs_fdf/fdf_intensity.c\
+       ./srcs_fdf/fdf_deplace.c
 
 OBJS = main.o\
        fdf_usage.o\
@@ -54,7 +55,8 @@ OBJS = main.o\
        fdf_deal_key.o\
        fdf_deal_mouse.o\
        fdf_zoom.o\
-       fdf_intensity.o
+       fdf_intensity.o\
+       fdf_deplace.o
 
 all: $(NAME)
 
