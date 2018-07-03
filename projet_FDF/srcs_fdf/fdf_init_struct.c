@@ -8,8 +8,8 @@ void	fdf_init_struct(int width, int height, char *title, t_fdf **win0)
 		exit (0);
 	if (!((*win0)->win_ptr = mlx_new_window((*win0)->mlx_ptr, width, height, title)))
 		exit (0);
-	(*win0)->ori_abs = 200;
-	(*win0)->ori_ord = 30;
+	(*win0)->ori_abs = ORI_ABS;
+	(*win0)->ori_ord = ORI_ORD;
 	(*win0)->depla_x = 0;
 	(*win0)->depla_y = 0;
 	(*win0)->zoom = 30;

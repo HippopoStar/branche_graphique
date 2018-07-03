@@ -10,6 +10,7 @@ int	fdf_deal_key(int key, void *param)
 	else
 	{
 		fdf_intensity(key, (t_fdf *)param);
+		fdf_reset(key, (t_fdf *)param);
 	}
 	return (0);
 }

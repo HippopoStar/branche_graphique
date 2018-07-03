@@ -38,6 +38,7 @@ SRCS = ./srcs_fdf/main.c\
 	./srcs_fdf/fdf_zoom.c\
 	./srcs_fdf/fdf_intensity.c\
 	./srcs_fdf/fdf_deplace.c\
+	./srcs_fdf/fdf_reset.c\
 	./srcs_fdf/fdf_cross.c
 
 OBJS = main.o\
@@ -60,6 +61,7 @@ OBJS = main.o\
 	fdf_zoom.o\
 	fdf_intensity.o\
 	fdf_deplace.o\
+	fdf_reset.o\
 	fdf_cross.o
 
 all: $(NAME)
