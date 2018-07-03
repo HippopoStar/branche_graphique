@@ -9,7 +9,6 @@ void	fdf_aux1_bresenham(t_point a, t_point b, void *mlx_ptr, void *win_ptr)
 {
 	int		dx;
 	int		dy;
-	int		e;
 
 	dx = b.x - a.x;
 	dy = b.y - a.y;
@@ -17,85 +16,28 @@ void	fdf_aux1_bresenham(t_point a, t_point b, void *mlx_ptr, void *win_ptr)
 	{
 		if (dx >= dy)
 		{
-			e = dx;
-			dx = dx * 2;
-			dy = dy * 2;
-			while (a.x < b.x)
-			{
-//				mlx_pixel_put(mlx_ptr, win_ptr, a.x, a.y, 0xFFFFFF);
-				mlx_pixel_put(mlx_ptr, win_ptr, a.x, a.y, fdf_gradation(a, b, b.x - a.x, dx / 2));
-				a.x = a.x + 1;
-				e = e - dy;
-				if (e < 0)
-				{
-					a.y = a.y + 1;
-					e = e + dx;
-				}
-			}
+			fdf_bresenham_1st_octant(a, b, mlx_ptr, win_ptr);
 		}
 		else
 		{
-			e = dy;
-			dy = dy * 2;
-			dx = dx * 2;
-			while (a.y < b.y)
-			{
-//				mlx_pixel_put(mlx_ptr, win_ptr, a.x, a.y, 0xFFFFFF);
-				mlx_pixel_put(mlx_ptr, win_ptr, a.x, a.y, fdf_gradation(a, b, b.y - a.y, dy / 2));
-				a.y = a.y + 1;
-				e = e - dx;
-				if (e < 0)
-				{
-					a.x = a.x + 1;
-					e = e + dy;
-				}
-			}
+			fdf_bresenham_2nd_octant(a, b, mlx_ptr, win_ptr);
 		}
 	}
 	else if (dy < 0)
 	{
 		if (dx >= -dy)
 		{
-			e = dx;
-			dx = dx * 2;
-			dy = dy * 2;
-			while (a.x < b.x)
-			{
-//				mlx_pixel_put(mlx_ptr, win_ptr, a.x, a.y, 0xFFFFFF);
-				mlx_pixel_put(mlx_ptr, win_ptr, a.x, a.y, fdf_gradation(a, b, b.x - a.x, dx / 2));
-				a.x = a.x + 1;
-				e = e + dy;
-				if (e < 0)
-				{
-					a.y = a.y - 1;
-					e = e + dx;
-				}
-			}
+			fdf_bresenham_8th_octant(a, b, mlx_ptr, win_ptr);
 		}
 		else
 		{
-			e = dy;
-			dy = dy * 2;
-			dx = dx * 2;
-			while (a.y > b.y)
-			{
-//				mlx_pixel_put(mlx_ptr, win_ptr, a.x, a.y, 0xFFFFFF);
-				mlx_pixel_put(mlx_ptr, win_ptr, a.x, a.y, fdf_gradation(a, b, b.y - a.y, dy / 2));
-				a.y = a.y - 1;
-				e = e + dx;
-				if (e > 0)
-				{
-					a.x = a.x + 1;
-					e = e + dy;
-				}
-			}
+			fdf_bresenham_7th_octant(a, b, mlx_ptr, win_ptr);
 		}
 	}
 	else
 	{
 		while (a.x < b.x)
 		{
-//			mlx_pixel_put(mlx_ptr, win_ptr, a.x, a.y, 0xFFFFFF);
 			mlx_pixel_put(mlx_ptr, win_ptr, a.x, a.y, fdf_gradation(a, b, b.x - a.x, dx));
 			a.x = a.x + 1;
 		}
@@ -107,8 +49,8 @@ void	fdf_aux1_bresenham(t_point a, t_point b, void *mlx_ptr, void *win_ptr)
 ** - ne fait rien si {a} et {b} confondus
 ** - trace [a, b] si a->b vertical oriente vers le bas
 ** - se rappelle elle-meme en intervertissant {a} et {b} si a->b vertical oriente vers le haut
-** - appelle 'fdf_aux_bresenham' si a->b non vertical avec a->b oriente vers la droite
-** - appelle 'fdf_aux_bresenham' en intervertissant {a} et {b} si a->b non vertical oriente vers la gauche
+** - appelle 'fdf_aux1_bresenham' si a->b non vertical avec a->b oriente vers la droite
+** - appelle 'fdf_aux1_bresenham' en intervertissant {a} et {b} si a->b non vertical oriente vers la gauche
 */
 
 void	fdf_aux0_bresenham(t_point a, t_point b, void *mlx_ptr, void *win_ptr)
