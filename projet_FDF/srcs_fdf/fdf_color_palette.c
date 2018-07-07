@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fdf_color_palette.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lcabanes <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/07/07 19:55:12 by lcabanes          #+#    #+#             */
+/*   Updated: 2018/07/07 20:34:00 by lcabanes         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fdf.h"
 
 void	fdf_redraw_color(int x_val, int y_val, t_fdf *win0)
@@ -12,9 +24,10 @@ void	fdf_redraw_color(int x_val, int y_val, t_fdf *win0)
 
 int		fdf_pick_a_color(int m_button, int m_x, int m_y, t_fdf *win0)
 {
-	if (m_button == MLX_Pointer_Button1)
+	if (m_button == MLX_POINTER_BUTTON1)
 	{
-		if ((CP_X0 < m_x && m_x < CP_X0 + 127) && (CP_Y0 < m_y && m_y < CP_Y0 + 127))
+		if ((CP_X0 < m_x && m_x < CP_X0 + 127)
+				&& (CP_Y0 < m_y && m_y < CP_Y0 + 127))
 		{
 			fdf_redraw_color(m_x - CP_X0, m_y - CP_Y0, win0);
 			return (1);
@@ -35,7 +48,7 @@ void	fdf_color_palette(void *mlx_ptr, void *win_ptr, int x0, int y0)
 		y = 0;
 		while (y < 128)
 		{
-			color = ft_melt_colors(255 - (2 * x), 2 * y , 2 * x);
+			color = ft_melt_colors(255 - (2 * x), 2 * y, 2 * x);
 			mlx_pixel_put(mlx_ptr, win_ptr, x0 + x, y0 + y, color);
 			y++;
 		}

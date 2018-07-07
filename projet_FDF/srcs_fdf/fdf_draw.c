@@ -1,6 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fdf_draw.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lcabanes <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/07/07 19:56:21 by lcabanes          #+#    #+#             */
+/*   Updated: 2018/07/07 20:20:25 by lcabanes         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fdf.h"
 
-void	fdf_draw_two_last_lines(t_fdf *win0, t_point **pos, size_t width, size_t height)
+void	fdf_draw_two_last_lines(t_fdf *win0, t_point **pos,
+													size_t width, size_t height)
 {
 	size_t	i;
 	t_point	*p0;
@@ -24,12 +37,6 @@ void	fdf_draw_two_last_lines(t_fdf *win0, t_point **pos, size_t width, size_t he
 	}
 }
 
-void	fdf_aux_draw(t_point *p, t_point *p_hor, t_point *p_ver, t_fdf *win0)
-{
-	fdf_imp_bresenham(p, p_hor, win0->mlx_ptr, win0->win_ptr);
-	fdf_imp_bresenham(p, p_ver, win0->mlx_ptr, win0->win_ptr);
-}
-
 void	fdf_draw(t_fdf *win0, t_point **pos)
 {
 	size_t	i;
@@ -48,11 +55,14 @@ void	fdf_draw(t_fdf *win0, t_point **pos)
 			p_hor = &(*(*(pos + i + 1) + j));
 			p_ver = &(*(*(pos + i) + j + 1));
 			fdf_aux_draw(p, p_hor, p_ver, win0);
+			fdf_imp_bresenham(p, p_hor, win0->mlx_ptr, win0->win_ptr);
+			fdf_imp_bresenham(p, p_ver, win0->mlx_ptr, win0->win_ptr);
 			j++;
 		}
 		i++;
 	}
-	fdf_draw_two_last_lines(win0, pos, win0->map_width - 1, win0->map_height - 1);
+	fdf_draw_two_last_lines(win0, pos,\
+			win0->map_width - 1, win0->map_height - 1);
 }
 
 void	fdf_redraw(t_fdf *win0)

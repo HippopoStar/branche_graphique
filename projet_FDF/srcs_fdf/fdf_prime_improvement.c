@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fdf_prime_improvement.c                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lcabanes <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/07/07 19:59:22 by lcabanes          #+#    #+#             */
+/*   Updated: 2018/07/07 20:27:46 by lcabanes         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fdf.h"
 
 /*
@@ -56,7 +68,7 @@ void	fdf_assign_a_prime_number(t_point *p)
 	p->prime = a * b;
 }
 
-int	fdf_prime_improvement(t_point *a, t_point *b)
+int		fdf_prime_improvement(t_point *a, t_point *b)
 {
 	int	coef;
 

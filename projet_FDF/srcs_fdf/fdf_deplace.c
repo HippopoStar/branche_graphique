@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fdf_deplace.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lcabanes <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/07/07 19:56:12 by lcabanes          #+#    #+#             */
+/*   Updated: 2018/07/07 20:33:07 by lcabanes         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fdf.h"
 
 void	fdf_aux_deplace(int m_x, int m_y, t_fdf *win0)
@@ -11,7 +23,7 @@ void	fdf_aux_deplace(int m_x, int m_y, t_fdf *win0)
 
 void	fdf_deplace(int button, int m_x, int m_y, t_fdf *win0)
 {
-	if (button == MLX_Pointer_Button3)
+	if (button == MLX_POINTER_BUTTON3)
 	{
 		if (win0->depla_x == 0 && win0->depla_y == 0)
 		{

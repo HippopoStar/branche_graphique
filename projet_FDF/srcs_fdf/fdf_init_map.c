@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fdf_init_map.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lcabanes <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/07/07 19:57:40 by lcabanes          #+#    #+#             */
+/*   Updated: 2018/07/07 20:27:16 by lcabanes         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fdf.h"
 
 void	fdf_convert_lines_into_map(t_fdf *win0, char **spl, size_t i)
@@ -36,9 +48,7 @@ void	fdf_split_file_lines(t_fdf *win0, t_fdf_line *last, size_t n)
 	t_fdf_line	*line;
 
 	if (!(win0->map = (int **)malloc(n * sizeof(int *))))
-	{
 		fdf_error_code("fdf_split_file_lines");
-	}
 	i = 1;
 	line = last;
 	while (i <= n)
@@ -58,10 +68,11 @@ void	fdf_split_file_lines(t_fdf *win0, t_fdf_line *last, size_t n)
 	}
 }
 
-void	fdf_rec_get_file_lines(int fd, t_fdf *win0, t_fdf_line *previous, size_t n)
+void	fdf_rec_get_file_lines(int fd, t_fdf *win0,\
+												t_fdf_line *previous, size_t n)
 {
 	t_fdf_line	line;
-	int		ret_gnl;
+	int			ret_gnl;
 
 	line.next = previous;
 	ret_gnl = get_next_line(fd, &(line.str));

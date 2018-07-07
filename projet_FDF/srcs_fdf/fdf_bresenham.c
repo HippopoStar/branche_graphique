@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fdf_bresenham.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lcabanes <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/07/07 19:54:46 by lcabanes          #+#    #+#             */
+/*   Updated: 2018/07/07 20:13:52 by lcabanes         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fdf.h"
 
 /*
@@ -14,31 +26,20 @@ void	fdf_aux_bresenham(t_point a, t_point b, void *mlx_ptr, void *win_ptr)
 	dy = b.y - a.y;
 	if (dy > 0)
 	{
-		if (dx >= dy)
-		{
-			fdf_bresenham_1st_octant(a, b, mlx_ptr, win_ptr);
-		}
-		else
-		{
-			fdf_bresenham_2nd_octant(a, b, mlx_ptr, win_ptr);
-		}
+		(dx >= dy) ? fdf_bresenham_1st_octant(a, b, mlx_ptr, win_ptr)
+					: fdf_bresenham_2nd_octant(a, b, mlx_ptr, win_ptr);
 	}
 	else if (dy < 0)
 	{
-		if (dx >= -dy)
-		{
-			fdf_bresenham_8th_octant(a, b, mlx_ptr, win_ptr);
-		}
-		else
-		{
-			fdf_bresenham_7th_octant(a, b, mlx_ptr, win_ptr);
-		}
+		(dx >= -dy) ? fdf_bresenham_8th_octant(a, b, mlx_ptr, win_ptr)
+					: fdf_bresenham_7th_octant(a, b, mlx_ptr, win_ptr);
 	}
 	else
 	{
 		while (a.x < b.x)
 		{
-			mlx_pixel_put(mlx_ptr, win_ptr, a.x, a.y, fdf_gradation(a, b, b.x - a.x, dx));
+			mlx_pixel_put(mlx_ptr, win_ptr, a.x, a.y,\
+					fdf_gradation(a, b, b.x - a.x, dx));
 			a.x = a.x + 1;
 		}
 	}
@@ -48,9 +49,12 @@ void	fdf_aux_bresenham(t_point a, t_point b, void *mlx_ptr, void *win_ptr)
 ** La fonction 'fdf_bresenham', selon les caracteristiques du segment [a, b] :
 ** - ne fait rien si {a} et {b} confondus
 ** - trace [a, b] si a->b vertical oriente vers le bas
-** - se rappelle elle-meme en intervertissant {a} et {b} si a->b vertical oriente vers le haut
-** - appelle 'fdf_aux_bresenham' si a->b non vertical avec a->b oriente vers la droite
-** - appelle 'fdf_aux_bresenham' en intervertissant {a} et {b} si a->b non vertical oriente vers la gauche
+** - se rappelle elle-meme en intervertissant {a} et {b} si a->b vertical
+**   oriente vers le haut
+** - appelle 'fdf_aux_bresenham' si a->b non vertical avec a->b oriente vers
+**   la droite
+** - appelle 'fdf_aux_bresenham' en intervertissant {a} et {b} si a->b
+**   non vertical oriente vers la gauche
 */
 
 void	fdf_bresenham(t_point a, t_point b, void *mlx_ptr, void *win_ptr)

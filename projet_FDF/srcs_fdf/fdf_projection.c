@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fdf_projection.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lcabanes <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/07/07 19:59:42 by lcabanes          #+#    #+#             */
+/*   Updated: 2018/07/07 20:25:26 by lcabanes         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fdf.h"
 
 void	fdf_iso(t_point *pos, size_t i, size_t j, t_fdf *win0)
@@ -12,7 +24,8 @@ void	fdf_iso(t_point *pos, size_t i, size_t j, t_fdf *win0)
 	pos->y = pos->y - (3 * win0->intensity * *(*(win0->map + i) + j));
 }
 
-void	fdf_projection(t_fdf *win0, void (*f)(t_point *, size_t, size_t, t_fdf *))
+void	fdf_projection(t_fdf *win0,\
+								void (*f)(t_point *, size_t, size_t, t_fdf *))
 {
 	size_t	i;
 	size_t	j;

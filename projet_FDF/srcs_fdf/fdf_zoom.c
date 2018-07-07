@@ -1,11 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fdf_zoom.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lcabanes <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/07/07 20:00:31 by lcabanes          #+#    #+#             */
+/*   Updated: 2018/07/07 20:31:51 by lcabanes         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fdf.h"
 
 void	fdf_zoom(int button, t_fdf *win0)
 {
-	if (button == MLX_Pointer_Button4
-		|| (button == MLX_Pointer_Button5 && win0->zoom > 1))
+	if (button == MLX_POINTER_BUTTON4
+		|| (button == MLX_POINTER_BUTTON5 && win0->zoom > 1))
 	{
-		(button == MLX_Pointer_Button4) ? (win0->zoom)++ : (win0->zoom)--;
+		(button == MLX_POINTER_BUTTON4) ? (win0->zoom)++ : (win0->zoom)--;
 		fdf_redraw_full(win0);
 	}
 }
