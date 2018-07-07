@@ -6,7 +6,7 @@
 /*   By: lcabanes <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/07 19:56:21 by lcabanes          #+#    #+#             */
-/*   Updated: 2018/07/07 20:20:25 by lcabanes         ###   ########.fr       */
+/*   Updated: 2018/07/07 20:45:53 by lcabanes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ void	fdf_draw(t_fdf *win0, t_point **pos)
 			p = &(*(*(pos + i) + j));
 			p_hor = &(*(*(pos + i + 1) + j));
 			p_ver = &(*(*(pos + i) + j + 1));
-			fdf_aux_draw(p, p_hor, p_ver, win0);
 			fdf_imp_bresenham(p, p_hor, win0->mlx_ptr, win0->win_ptr);
 			fdf_imp_bresenham(p, p_ver, win0->mlx_ptr, win0->win_ptr);
 			j++;
