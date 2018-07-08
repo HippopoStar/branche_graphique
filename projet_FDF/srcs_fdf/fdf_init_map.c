@@ -6,7 +6,7 @@
 /*   By: lcabanes <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/07 19:57:40 by lcabanes          #+#    #+#             */
-/*   Updated: 2018/07/08 05:01:46 by lcabanes         ###   ########.fr       */
+/*   Updated: 2018/07/08 05:19:10 by lcabanes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 size_t	fdf_count_fields(char *line, size_t width)
 {
 	size_t	i;
+	size_t	witness;
 
 	i = 0;
 	while (*(line + i) == '\t' || *(line + i) == '\n' || *(line + i) == '\v'
@@ -22,13 +23,15 @@ size_t	fdf_count_fields(char *line, size_t width)
 	{
 		i++;
 	}
+	witness = 0;
 	while (!(*(line + i) == '\t' || *(line + i) == '\n' || *(line + i) == '\v'
 			|| *(line + i) == '\f' || *(line + i) == '\r' || *(line + i) == ' '
 			|| *(line + i) == '\0'))
 	{
+		witness = 1;
 		i++;
 	}
-	return ((*(line + i) == '\0') ? width
+	return ((*(line + i) == '\0') ? width + witness
 									: fdf_count_fields(line + i, width + 1));
 }
 
@@ -109,7 +112,6 @@ void	fdf_rec_get_file_lines(int fd, t_fdf *win0,\
 		{
 			fdf_error_code("fdf_rec_get_file_lines");
 		}
-		(win0->map_width)++;
 		win0->map_height = n;
 		fdf_split_file_lines(win0, line.next, n);
 	}
