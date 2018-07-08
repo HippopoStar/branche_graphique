@@ -6,7 +6,7 @@
 /*   By: lcabanes <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/19 23:17:07 by lcabanes          #+#    #+#             */
-/*   Updated: 2018/07/07 20:42:02 by lcabanes         ###   ########.fr       */
+/*   Updated: 2018/07/08 03:41:29 by lcabanes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,16 +27,31 @@
 # define CP_X0					5
 # define CP_Y0					5
 # define CROSS_SIZE				3
+# define FDF_DEFAULT_ZOOM		30
+# define FDF_DEFAULT_INTENSITY	1
 # define ORI_ABS				200
 # define ORI_ORD				30
-# define MLX_ESCAPE				0xFF1B
-# define MLX_D					0x0064
-# define MLX_R					0x0072
-# define MLX_U					0x0075
+# define MLX_ESCAPE				0x0035
+# define MLX_D					0x0002
+# define MLX_R					0x000F
+# define MLX_U					0x0020
 # define MLX_POINTER_BUTTON1	0x0001
-# define MLX_POINTER_BUTTON3	0x0003
+# define MLX_POINTER_BUTTON3	0x0002
 # define MLX_POINTER_BUTTON4	0x0004
 # define MLX_POINTER_BUTTON5	0x0005
+
+/*
+** ASSIGNATIONS LINUX
+**
+** # define MLX_ESCAPE				0xFF1B
+** # define MLX_D					0x0064
+** # define MLX_R					0x0072
+** # define MLX_U					0x0075
+** # define MLX_POINTER_BUTTON1		0x0001
+** # define MLX_POINTER_BUTTON3		0x0003
+** # define MLX_POINTER_BUTTON4		0x0004
+** # define MLX_POINTER_BUTTON5		0x0005
+*/
 
 typedef struct			s_point
 {
@@ -110,10 +125,10 @@ void					fdf_redraw_full(t_fdf *win0);
 int						fdf_deal_key(int key, void *param);
 int						fdf_deal_mouse\
 							(int button, int mouse_x, int mouse_y, void *param);
-void					fdf_zoom(int button, t_fdf *win0);
-void					fdf_intensity(int key, t_fdf *win0);
-void					fdf_deplace(int button, int m_x, int m_y, t_fdf *win0);
-void					fdf_reset(int key, t_fdf *win0);
+int						fdf_zoom(int button, t_fdf *win0);
+int						fdf_intensity(int key, t_fdf *win0);
+int						fdf_deplace(int button, int m_x, int m_y, t_fdf *win0);
+int						fdf_reset(int key, t_fdf *win0);
 void					fdf_cross(int x0, int y0, int color, t_fdf *win0);
 
 #endif

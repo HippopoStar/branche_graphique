@@ -6,15 +6,15 @@
 #    By: lcabanes <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/07 19:50:49 by lcabanes          #+#    #+#              #
-#    Updated: 2018/04/19 22:39:22 by lcabanes         ###   ########.fr        #
+#    Updated: 2018/07/08 03:23:38 by lcabanes         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CFLAGS	+=		-Wall -Wextra -Werror
-CFLAGS	+=		-I/usr/local/include/ -I./libft/includes -I./
-CFLAGS	+=		-L/usr/local/lib/ -L./libft/
-LIBS		=	-lft -lmlx -lXext -lX11
-FRAMEWORKS	=	-framework OpenGL -framework AppKit
+CFLAGS	+=		-I./ -I./libft/includes -I/usr/local/include/
+LIBS	+=		-L./libft/ -lft -L/usr/local/lib/ -lmlx
+LINUX	=		-lXext -lX11
+MAC_OS	=		-framework OpenGL -framework AppKit
 
 NAME = fdf
 
@@ -69,14 +69,14 @@ all: $(NAME)
 $(NAME):
 	@make -C ./libft/ all
 	gcc -c $(CFLAGS) $(SRCS)
-	gcc -o $(NAME) $(CFLAGS) $(OBJS) $(LIBS)
+	gcc -o $(NAME) $(CFLAGS) $(OBJS) $(LIBS) $(MAC_OS)
 
 clean:
-#	@make -C ./libft/ clean
+	@make -C ./libft/ clean
 	rm -f $(OBJS)
 
 fclean: clean
-#	@make -C ./libft/ fclean
+	@make -C ./libft/ fclean
 	rm -f $(NAME)
 
 re: fclean all

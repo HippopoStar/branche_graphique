@@ -6,7 +6,7 @@
 /*   By: lcabanes <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/07 19:55:51 by lcabanes          #+#    #+#             */
-/*   Updated: 2018/07/07 20:32:21 by lcabanes         ###   ########.fr       */
+/*   Updated: 2018/07/08 03:37:18 by lcabanes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ int	fdf_deal_key(int key, void *param)
 	}
 	else
 	{
-		fdf_intensity(key, (t_fdf *)param);
-		fdf_reset(key, (t_fdf *)param);
+		fdf_intensity(key, (t_fdf *)param)
+		|| fdf_reset(key, (t_fdf *)param);
 	}
 	return (0);
 }

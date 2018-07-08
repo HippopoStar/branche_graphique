@@ -6,7 +6,7 @@
 /*   By: lcabanes <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/07 19:56:12 by lcabanes          #+#    #+#             */
-/*   Updated: 2018/07/07 20:33:07 by lcabanes         ###   ########.fr       */
+/*   Updated: 2018/07/08 03:32:39 by lcabanes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	fdf_aux_deplace(int m_x, int m_y, t_fdf *win0)
 	fdf_redraw_full(win0);
 }
 
-void	fdf_deplace(int button, int m_x, int m_y, t_fdf *win0)
+int		fdf_deplace(int button, int m_x, int m_y, t_fdf *win0)
 {
 	if (button == MLX_POINTER_BUTTON3)
 	{
@@ -35,6 +35,7 @@ void	fdf_deplace(int button, int m_x, int m_y, t_fdf *win0)
 		{
 			fdf_aux_deplace(m_x, m_y, win0);
 		}
+		return (1);
 	}
 	else if (win0->depla_x != 0 || win0->depla_y != 0)
 	{
@@ -42,4 +43,5 @@ void	fdf_deplace(int button, int m_x, int m_y, t_fdf *win0)
 		win0->depla_x = 0;
 		win0->depla_y = 0;
 	}
+	return (0);
 }
