@@ -6,11 +6,31 @@
 /*   By: lcabanes <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/07 19:57:40 by lcabanes          #+#    #+#             */
-/*   Updated: 2018/07/07 20:27:16 by lcabanes         ###   ########.fr       */
+/*   Updated: 2018/07/08 05:01:46 by lcabanes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
+
+size_t	fdf_count_fields(char *line, size_t width)
+{
+	size_t	i;
+
+	i = 0;
+	while (*(line + i) == '\t' || *(line + i) == '\n' || *(line + i) == '\v'
+			|| *(line + i) == '\f' || *(line + i) == '\r' || *(line + i) == ' ')
+	{
+		i++;
+	}
+	while (!(*(line + i) == '\t' || *(line + i) == '\n' || *(line + i) == '\v'
+			|| *(line + i) == '\f' || *(line + i) == '\r' || *(line + i) == ' '
+			|| *(line + i) == '\0'))
+	{
+		i++;
+	}
+	return ((*(line + i) == '\0') ? width
+									: fdf_count_fields(line + i, width + 1));
+}
 
 void	fdf_convert_lines_into_map(t_fdf *win0, char **spl, size_t i)
 {
@@ -21,9 +41,10 @@ void	fdf_convert_lines_into_map(t_fdf *win0, char **spl, size_t i)
 	{
 		j++;
 	}
-	(win0->map_width == j || win0->map_width == 0) ?
-		win0->map_width = j
-		: fdf_error_code("fdf_convert_lines_into_map");
+	if (j != win0->map_width)
+	{
+		fdf_error_code("fdf_convert_lines_into_map");
+	}
 	if (!(*(win0->map + i) = (int *)malloc(j * sizeof(int))))
 	{
 		fdf_error_code("fdf_convert_lines_into_map");
@@ -83,7 +104,12 @@ void	fdf_rec_get_file_lines(int fd, t_fdf *win0,\
 	else if (ret_gnl == 0)
 	{
 		free(line.str);
-		win0->map_width = 0;
+		if (!(line.next)
+				|| !(win0->map_width = fdf_count_fields((line.next)->str, 0)))
+		{
+			fdf_error_code("fdf_rec_get_file_lines");
+		}
+		(win0->map_width)++;
 		win0->map_height = n;
 		fdf_split_file_lines(win0, line.next, n);
 	}

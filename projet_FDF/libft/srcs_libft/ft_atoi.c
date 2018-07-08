@@ -6,7 +6,7 @@
 /*   By: lcabanes <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/09 11:42:05 by lcabanes          #+#    #+#             */
-/*   Updated: 2017/11/25 23:45:25 by lcabanes         ###   ########.fr       */
+/*   Updated: 2018/07/08 05:09:08 by lcabanes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,9 +65,9 @@ static int	ft_atoi_add(int *n, char c, int a, int b)
 	}
 }
 
-int		ft_atoi(const char *str)
+int			ft_atoi(const char *str)
 {
-	size_t		i;
+	size_t	i;
 	int		n;
 	int		neg;
 	int		a;
