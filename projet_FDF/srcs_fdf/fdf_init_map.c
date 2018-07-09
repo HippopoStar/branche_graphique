@@ -6,7 +6,7 @@
 /*   By: lcabanes <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/07 19:57:40 by lcabanes          #+#    #+#             */
-/*   Updated: 2018/07/09 03:53:33 by lcabanes         ###   ########.fr       */
+/*   Updated: 2018/07/09 06:34:44 by lcabanes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,27 +97,27 @@ void	fdf_rec_get_file_lines(int fd, t_fdf *win0,\
 {
 	t_fdf_line	line;
 	int			ret_gnl;
+	size_t		ret_cf;
 
 	line.next = previous;
 	ret_gnl = get_next_line(fd, &(line.str));
 	if (ret_gnl == -1)
-	{
 		fdf_error_code("fdf_rec_get_file_lines");
-	}
 	else if (ret_gnl == 0)
 	{
 		free(line.str);
 		if (!(line.next)
 				|| !(win0->map_width = fdf_count_fields((line.next)->str, 0)))
-		{
 			fdf_error_code("fdf_rec_get_file_lines");
-		}
 		win0->map_height = n;
 		fdf_split_file_lines(win0, line.next, n);
 	}
 	else
 	{
 		ft_putendl(line.str);
+		((ret_cf = fdf_count_fields(line.str, 0)) == win0->map_width
+			|| win0->map_width == 0) ? win0->map_width = ret_cf
+			: fdf_error_code("fdf_rec_get_file_lines");
 		fdf_rec_get_file_lines(fd, win0, &line, n + 1);
 	}
 }
@@ -132,6 +132,7 @@ void	fdf_init_map(char *file_name, t_fdf *win0)
 	}
 	else
 	{
+		win0->map_width = 0;
 		fdf_rec_get_file_lines(fd, win0, NULL, 0);
 		if (close(fd) == -1)
 		{
