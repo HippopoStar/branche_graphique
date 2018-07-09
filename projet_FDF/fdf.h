@@ -6,7 +6,7 @@
 /*   By: lcabanes <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/19 23:17:07 by lcabanes          #+#    #+#             */
-/*   Updated: 2018/07/09 03:38:03 by lcabanes         ###   ########.fr       */
+/*   Updated: 2018/07/09 04:48:34 by lcabanes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,6 +127,7 @@ int						fdf_pick_a_color\
 void					fdf_draw(t_fdf *win0, t_point **pos);
 void					fdf_redraw(t_fdf *win0);
 void					fdf_redraw_full(t_fdf *win0);
+void					fdf_display_parameters(t_fdf *win0);
 int						fdf_deal_key(int key, void *param);
 int						fdf_deal_mouse\
 							(int button, int mouse_x, int mouse_y, void *param);

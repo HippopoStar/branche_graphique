@@ -6,7 +6,7 @@
 #    By: lcabanes <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/07 19:50:49 by lcabanes          #+#    #+#              #
-#    Updated: 2018/07/09 03:23:16 by lcabanes         ###   ########.fr        #
+#    Updated: 2018/07/09 04:49:13 by lcabanes         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,7 @@ SRCS = ./srcs_fdf/main.c\
 	./srcs_fdf/fdf_projection.c\
 	./srcs_fdf/fdf_color_pos.c\
 	./srcs_fdf/fdf_draw.c\
+	./srcs_fdf/fdf_display_parameters.c\
 	./srcs_fdf/fdf_deal_key.c\
 	./srcs_fdf/fdf_deal_mouse.c\
 	./srcs_fdf/fdf_zoom.c\
@@ -57,6 +58,7 @@ OBJS = main.o\
 	fdf_projection.o\
 	fdf_color_pos.o\
 	fdf_draw.o\
+	fdf_display_parameters.o\
 	fdf_deal_key.o\
 	fdf_deal_mouse.o\
 	fdf_zoom.o\

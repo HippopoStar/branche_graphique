@@ -6,7 +6,7 @@
 /*   By: lcabanes <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/07 19:56:21 by lcabanes          #+#    #+#             */
-/*   Updated: 2018/07/07 20:45:53 by lcabanes         ###   ########.fr       */
+/*   Updated: 2018/07/09 04:50:13 by lcabanes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ void	fdf_draw(t_fdf *win0, t_point **pos)
 	}
 	fdf_draw_two_last_lines(win0, pos,\
 			win0->map_width - 1, win0->map_height - 1);
+	fdf_display_parameters(win0);
 }
 
 void	fdf_redraw(t_fdf *win0)
