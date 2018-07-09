@@ -6,7 +6,7 @@
 /*   By: lcabanes <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/07 20:00:39 by lcabanes          #+#    #+#             */
-/*   Updated: 2018/07/08 07:17:32 by lcabanes         ###   ########.fr       */
+/*   Updated: 2018/07/09 03:51:03 by lcabanes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ void	fdf(char *file_name)
 
 	fdf_init_struct(WIN0_SX, WIN0_SY, WIN0_TITLE, &win0);
 	fdf_init_map(file_name, win0);
-	fdf_show_map(win0);
 	fdf_allocate_to_pos(win0);
 	fdf_color_pos(win0);
 	fdf_projection(win0, fdf_iso);

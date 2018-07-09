@@ -6,7 +6,7 @@
 /*   By: lcabanes <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/07 19:57:40 by lcabanes          #+#    #+#             */
-/*   Updated: 2018/07/08 05:19:10 by lcabanes         ###   ########.fr       */
+/*   Updated: 2018/07/09 03:53:33 by lcabanes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,6 +117,7 @@ void	fdf_rec_get_file_lines(int fd, t_fdf *win0,\
 	}
 	else
 	{
+		ft_putendl(line.str);
 		fdf_rec_get_file_lines(fd, win0, &line, n + 1);
 	}
 }

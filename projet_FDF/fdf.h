@@ -6,7 +6,7 @@
 /*   By: lcabanes <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/19 23:17:07 by lcabanes          #+#    #+#             */
-/*   Updated: 2018/07/08 03:41:29 by lcabanes         ###   ########.fr       */
+/*   Updated: 2018/07/09 03:38:03 by lcabanes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,14 @@
 # define CP_X0					5
 # define CP_Y0					5
 # define CROSS_SIZE				3
-# define FDF_DEFAULT_ZOOM		30
+# define FDF_DEFAULT_ZOOM		1
+# define FDF_DEFAULT_SPACING	10
 # define FDF_DEFAULT_INTENSITY	1
 # define ORI_ABS				200
 # define ORI_ORD				30
 # define MLX_ESCAPE				0x0035
+# define MLX_UP					0x007E
+# define MLX_DOWN				0x007D
 # define MLX_D					0x0002
 # define MLX_R					0x000F
 # define MLX_U					0x0020
@@ -74,6 +77,7 @@ typedef struct			s_fdf
 	size_t				map_height;
 	int					max_val;
 	int					zoom;
+	int					spacing;
 	int					intensity;
 	int					depla_x;
 	int					depla_y;
@@ -110,6 +114,7 @@ void					fdf_init_struct\
 							(int width, int height, char *title, t_fdf **win0);
 void					fdf_color_palette\
 								(void *mlx_ptr, void *win_ptr, int x0, int y0);
+void					fdf_apply_zoom(int *n, t_fdf *win0);
 void					fdf_init_map(char *file_name, t_fdf *win0);
 void					fdf_show_map(t_fdf *win0);
 void					fdf_allocate_to_pos(t_fdf *win0);
@@ -126,6 +131,7 @@ int						fdf_deal_key(int key, void *param);
 int						fdf_deal_mouse\
 							(int button, int mouse_x, int mouse_y, void *param);
 int						fdf_zoom(int button, t_fdf *win0);
+int						fdf_spacing(int key, t_fdf *win0);
 int						fdf_intensity(int key, t_fdf *win0);
 int						fdf_deplace(int button, int m_x, int m_y, t_fdf *win0);
 int						fdf_reset(int key, t_fdf *win0);

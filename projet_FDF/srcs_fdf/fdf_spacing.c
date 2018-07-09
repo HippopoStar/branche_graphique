@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf_deal_key.c                                     :+:      :+:    :+:   */
+/*   fdf_spacing.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lcabanes <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/07 19:55:51 by lcabanes          #+#    #+#             */
-/*   Updated: 2018/07/09 03:27:20 by lcabanes         ###   ########.fr       */
+/*   Created: 2018/07/09 03:18:29 by lcabanes          #+#    #+#             */
+/*   Updated: 2018/07/09 03:28:11 by lcabanes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int	fdf_deal_key(int key, void *param)
+int	fdf_spacing(int key, t_fdf *win0)
 {
-	ft_putnbr_base(key, "0123456789ABCDEF");
-	if (key == MLX_ESCAPE)
+	if (key == MLX_UP
+		|| (key == MLX_DOWN && win0->spacing > 1))
 	{
-		exit(0);
-	}
-	else
-	{
-		fdf_spacing(key, (t_fdf *)param)
-		|| fdf_intensity(key, (t_fdf *)param)
-		|| fdf_reset(key, (t_fdf *)param);
+		(key == MLX_UP) ? (win0->spacing)++ : (win0->spacing)--;
+		fdf_redraw_full(win0);
+		return (1);
 	}
 	return (0);
 }
