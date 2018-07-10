@@ -36,6 +36,7 @@ SRCS = ./srcs_fdf/main.c\
 	./srcs_fdf/fdf_display_parameters.c\
 	./srcs_fdf/fdf_deal_key.c\
 	./srcs_fdf/fdf_deal_mouse.c\
+	./srcs_fdf/fdf_optimize.c\
 	./srcs_fdf/fdf_zoom.c\
 	./srcs_fdf/fdf_spacing.c\
 	./srcs_fdf/fdf_intensity.c\
@@ -66,6 +67,7 @@ OBJS = main.o\
 	fdf_display_parameters.o\
 	fdf_deal_key.o\
 	fdf_deal_mouse.o\
+	fdf_optimize.o\
 	fdf_zoom.o\
 	fdf_spacing.o\
 	fdf_intensity.o\

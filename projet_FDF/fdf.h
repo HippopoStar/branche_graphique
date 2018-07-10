@@ -52,6 +52,7 @@
 # define MLX_UP					0xFF52
 # define MLX_DOWN				0xFF54
 # define MLX_D					0x0064
+# define MLX_I					0x0069
 # define MLX_R					0x0072
 # define MLX_U					0x0075
 # define MLX_POINTER_BUTTON1		0x0001
@@ -92,6 +93,7 @@ typedef struct			s_fdf
 	size_t				map_width;
 	size_t				map_height;
 	int					max_val;
+	int					optimize;
 	int					zoom;
 	int					spacing;
 	int					intensity;
@@ -160,6 +162,7 @@ void					fdf_display_parameters(t_fdf *win0);
 int						fdf_deal_key(int key, void *param);
 int						fdf_deal_mouse\
 							(int button, int mouse_x, int mouse_y, void *param);
+int						fdf_optimize(int key, t_fdf *win0);
 int						fdf_zoom(int button, t_fdf *win0);
 int						fdf_spacing(int key, t_fdf *win0);
 int						fdf_intensity(int key, t_fdf *win0);

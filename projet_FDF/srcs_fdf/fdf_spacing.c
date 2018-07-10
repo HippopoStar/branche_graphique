@@ -18,7 +18,7 @@ int	fdf_spacing(int key, t_fdf *win0)
 		|| (key == MLX_DOWN && win0->spacing > 1))
 	{
 		(key == MLX_UP) ? (win0->spacing)++ : (win0->spacing)--;
-		fdf_img_redraw_full(win0);
+		(win0->optimize == 0) ? fdf_redraw_full(win0) : fdf_img_redraw_full(win0);
 		return (1);
 	}
 	return (0);
