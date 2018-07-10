@@ -3,11 +3,17 @@
 void	fdf_put_px_into_img(t_mlx_img *pic, int x, int y, int color)
 {
 	char	*px;
+	int		r;
+	int		g;
+	int		b;
 
 	if ((0 <= x && x < pic->width) && (0 <= y && y < pic->height))
 	{
 		px = pic->img_str + (4 * y * pic->width) + (4 * x);
-		ft_break_color_down((int *)(px + 0), (int *)(px + 1), (int *)(px + 2), color);
+		ft_break_color_down(&r, &g, &b, color);
+		*(px + 0) = (char)r;
+		*(px + 1) = (char)g;
+		*(px + 2) = (char)b;
 	}
 }
 
@@ -15,7 +21,8 @@ void	fdf_clear_img(t_mlx_img *pic)
 {
 	size_t	i;
 
-	while (i < (size_t)(pic->height * pic->width))
+	i = 0;
+	while (i < (size_t)(4 * pic->height * pic->width))
 	{
 		*(pic->img_str + i) = 0;
 		i++;

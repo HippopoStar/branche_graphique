@@ -74,13 +74,14 @@ void	fdf_img_draw(t_fdf *win0, t_point **pos)
 
 void	fdf_img_redraw(t_fdf *win0)
 {
-	t_mlx_img	*tmp;
+//	t_mlx_img	*tmp;
 
-	tmp = win0->mlx_img_fdf;
-	fdf_init_img_fdf(win0);
+//	tmp = win0->mlx_img_fdf;
+//	fdf_init_img_fdf(win0);
+	fdf_clear_img(win0->mlx_img_fdf);
 	fdf_aux_img_draw(win0, win0->pos);
 	mlx_clear_window(win0->mlx_ptr, win0->win_ptr);
-	mlx_destroy_image(win0->mlx_ptr, tmp->img_ptr);
+//	mlx_destroy_image(win0->mlx_ptr, tmp->img_ptr);
 	mlx_put_image_to_window(win0->mlx_ptr, win0->win_ptr, (win0->mlx_img_fdf)->img_ptr, 0, 0);
 	mlx_put_image_to_window(win0->mlx_ptr, win0->win_ptr, (win0->mlx_img_cp)->img_ptr, CP_X0, CP_Y0);
 	fdf_display_parameters(win0);
