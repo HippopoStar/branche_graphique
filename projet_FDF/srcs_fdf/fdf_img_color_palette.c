@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf_spacing.c                                      :+:      :+:    :+:   */
+/*   fdf_color_palette.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lcabanes <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/09 03:18:29 by lcabanes          #+#    #+#             */
-/*   Updated: 2018/07/09 03:28:11 by lcabanes         ###   ########.fr       */
+/*   Created: 2018/07/07 19:55:12 by lcabanes          #+#    #+#             */
+/*   Updated: 2018/07/07 20:34:00 by lcabanes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int	fdf_spacing(int key, t_fdf *win0)
+void	fdf_img_color_palette(t_mlx_img *pic)
 {
-	if (key == MLX_UP
-		|| (key == MLX_DOWN && win0->spacing > 1))
+	int	x;
+	int	y;
+	int	color;
+
+	x = 0;
+	while (x < 128)
 	{
-		(key == MLX_UP) ? (win0->spacing)++ : (win0->spacing)--;
-		fdf_img_redraw_full(win0);
-		return (1);
+		y = 0;
+		while (y < 128)
+		{
+			color = ft_melt_colors(255 - (2 * x), 2 * y, 2 * x);
+			fdf_put_px_into_img(pic, x, y, color);
+			y++;
+		}
+		x++;
 	}
-	return (0);
 }

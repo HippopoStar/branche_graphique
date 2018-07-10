@@ -14,6 +14,6 @@
 
 void	fdf_usage(void)
 {
-	ft_putstr("./fdf <file>");
+	ft_putstr("usage: ./fdf <file>");
 	ft_putchar('\n');
 }

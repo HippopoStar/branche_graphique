@@ -30,7 +30,7 @@ int		fdf_zoom(int button, t_fdf *win0)
 		|| (button == MLX_POINTER_BUTTON5))
 	{
 		(button == MLX_POINTER_BUTTON4) ? (win0->zoom)++ : (win0->zoom)--;
-		fdf_redraw_full(win0);
+		fdf_img_redraw_full(win0);
 		return (1);
 	}
 	return (0);

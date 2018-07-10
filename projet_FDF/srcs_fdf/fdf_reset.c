@@ -33,7 +33,7 @@ int	fdf_reset(int key, t_fdf *win0)
 		{
 			win0->spacing = FDF_DEFAULT_SPACING;
 		}
-		fdf_redraw_full(win0);
+		fdf_img_redraw_full(win0);
 		return (1);
 	}
 	return (0);

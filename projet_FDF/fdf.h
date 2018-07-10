@@ -32,6 +32,7 @@
 # define FDF_DEFAULT_INTENSITY	1
 # define ORI_ABS				200
 # define ORI_ORD				30
+/*
 # define MLX_ESCAPE				0x0035
 # define MLX_UP					0x007E
 # define MLX_DOWN				0x007D
@@ -42,19 +43,21 @@
 # define MLX_POINTER_BUTTON3	0x0002
 # define MLX_POINTER_BUTTON4	0x0004
 # define MLX_POINTER_BUTTON5	0x0005
+*/
 
 /*
 ** ASSIGNATIONS LINUX
-**
-** # define MLX_ESCAPE				0xFF1B
-** # define MLX_D					0x0064
-** # define MLX_R					0x0072
-** # define MLX_U					0x0075
-** # define MLX_POINTER_BUTTON1		0x0001
-** # define MLX_POINTER_BUTTON3		0x0003
-** # define MLX_POINTER_BUTTON4		0x0004
-** # define MLX_POINTER_BUTTON5		0x0005
 */
+# define MLX_ESCAPE				0xFF1B
+# define MLX_UP					0xFF52
+# define MLX_DOWN				0xFF54
+# define MLX_D					0x0064
+# define MLX_R					0x0072
+# define MLX_U					0x0075
+# define MLX_POINTER_BUTTON1		0x0001
+# define MLX_POINTER_BUTTON3		0x0003
+# define MLX_POINTER_BUTTON4		0x0004
+# define MLX_POINTER_BUTTON5		0x0005
 
 typedef struct			s_point
 {
@@ -66,10 +69,23 @@ typedef struct			s_point
 	int					b;
 }						t_point;
 
+typedef struct			s_mlx_img
+{
+	void				*img_ptr;
+	char				*img_str;
+	int					bpp;
+	int					s_l;
+	int					endian;
+	int					width;
+	int					height;
+}						t_mlx_img;
+
 typedef struct			s_fdf
 {
 	void				*mlx_ptr;
 	void				*win_ptr;
+	t_mlx_img			*mlx_img_fdf;
+	t_mlx_img			*mlx_img_cp;
 	int					ori_abs;
 	int					ori_ord;
 	int					**map;
@@ -106,14 +122,24 @@ void					fdf_bresenham_8th_octant\
 						(t_point a, t_point b, void *mlx_ptr, void *win_ptr);
 void					fdf_bresenham_7th_octant\
 						(t_point a, t_point b, void *mlx_ptr, void *win_ptr);
+void					fdf_img_imp_bresenham(t_point *a, t_point *b, t_mlx_img *pic);
+void					fdf_img_bresenham_1st_octant(t_point a, t_point b, t_mlx_img *pic);
+void					fdf_img_bresenham_2nd_octant(t_point a, t_point b, t_mlx_img *pic);
+void					fdf_img_bresenham_8th_octant(t_point a, t_point b, t_mlx_img *pic);
+void					fdf_img_bresenham_7th_octant(t_point a, t_point b, t_mlx_img *pic);
 int						fdf_gradation\
 						(t_point cur, t_point des, int cur_dist, int tot_dist);
 int						fdf_prime_improvement(t_point *a, t_point *b);
 void					fdf_assign_a_prime_number(t_point *p);
 void					fdf_init_struct\
 							(int width, int height, char *title, t_fdf **win0);
+void					fdf_init_images(t_fdf *win0);
+void					fdf_init_img_fdf(t_fdf *win0);
+void					fdf_clear_img(t_mlx_img *pic);
+void					fdf_put_px_into_img(t_mlx_img *pic, int x, int y, int color);
 void					fdf_color_palette\
 								(void *mlx_ptr, void *win_ptr, int x0, int y0);
+void					fdf_img_color_palette(t_mlx_img *pic);
 void					fdf_apply_zoom(int *n, t_fdf *win0);
 void					fdf_init_map(char *file_name, t_fdf *win0);
 void					fdf_show_map(t_fdf *win0);
@@ -127,6 +153,9 @@ int						fdf_pick_a_color\
 void					fdf_draw(t_fdf *win0, t_point **pos);
 void					fdf_redraw(t_fdf *win0);
 void					fdf_redraw_full(t_fdf *win0);
+void					fdf_img_draw(t_fdf *win0, t_point **pos);
+void					fdf_img_redraw(t_fdf *win0);
+void					fdf_img_redraw_full(t_fdf *win0);
 void					fdf_display_parameters(t_fdf *win0);
 int						fdf_deal_key(int key, void *param);
 int						fdf_deal_mouse\

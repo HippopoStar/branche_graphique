@@ -21,9 +21,10 @@ int	fdf_deal_key(int key, void *param)
 	}
 	else
 	{
-		fdf_spacing(key, (t_fdf *)param)
+		if (fdf_spacing(key, (t_fdf *)param)
 		|| fdf_intensity(key, (t_fdf *)param)
-		|| fdf_reset(key, (t_fdf *)param);
+		|| fdf_reset(key, (t_fdf *)param))
+			return (0);
 	}
 	return (0);
 }

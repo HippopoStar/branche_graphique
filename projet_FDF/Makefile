@@ -41,7 +41,12 @@ SRCS = ./srcs_fdf/main.c\
 	./srcs_fdf/fdf_intensity.c\
 	./srcs_fdf/fdf_deplace.c\
 	./srcs_fdf/fdf_reset.c\
-	./srcs_fdf/fdf_cross.c
+	./srcs_fdf/fdf_cross.c\
+	./srcs_fdf/fdf_init_images.c\
+	./srcs_fdf/fdf_img_color_palette.c\
+	./srcs_fdf/fdf_img_bresenham.c\
+	./srcs_fdf/fdf_img_bresenham_octants.c\
+	./srcs_fdf/fdf_img_draw.c\
 
 OBJS = main.o\
 	fdf_usage.o\
@@ -66,21 +71,27 @@ OBJS = main.o\
 	fdf_intensity.o\
 	fdf_deplace.o\
 	fdf_reset.o\
-	fdf_cross.o
+	fdf_cross.o\
+	fdf_init_images.o\
+	fdf_img_color_palette.o\
+	fdf_img_bresenham.o\
+	fdf_img_bresenham_octants.o\
+	fdf_img_draw.o
+
 
 all: $(NAME)
 
 $(NAME):
 	@make -C ./libft/ all
 	gcc -c $(CFLAGS) $(SRCS)
-	gcc -o $(NAME) $(CFLAGS) $(OBJS) $(LIBS) $(MAC_OS)
+	gcc -o $(NAME) $(CFLAGS) $(OBJS) $(LIBS) $(LINUX)
 
 clean:
-	@make -C ./libft/ clean
+#	@make -C ./libft/ clean
 	rm -f $(OBJS)
 
 fclean: clean
-	@make -C ./libft/ fclean
+#	@make -C ./libft/ fclean
 	rm -f $(NAME)
 
 re: fclean all
