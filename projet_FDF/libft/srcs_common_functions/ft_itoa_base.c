@@ -79,7 +79,15 @@ char	*ft_itoa_base(int n, const char *base, int pres, int spac)
 	l_n.next = &l_base;
 	l_base.content = (void *)base;
 	l_base.content_size = ft_strlen(base);
+	if (l_base.content_size == 0)
+	{
+		return (NULL);
+	}
 	l_base.next = &l_length;
+	if (pres == 0)
+	{
+		pres = 1;
+	}
 	l_length.content = (void *)(&pres);
 	l_length.content_size = spac;
 	l_length.next = NULL;
