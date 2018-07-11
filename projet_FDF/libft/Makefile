@@ -82,7 +82,8 @@ SRCS = ./srcs_libft/ft_memset.c\
 		./srcs_common_functions/ft_sqrt.c\
 		./srcs_common_functions/ft_hypotenuse.c\
 		./srcs_common_functions/ft_melt_colors.c\
-		./srcs_common_functions/ft_break_color_down.c
+		./srcs_common_functions/ft_break_color_down.c\
+		./srcs_common_functions/ft_itoa_base.c
 
 OBJS = ft_memset.o\
 		ft_bzero.o\
@@ -151,7 +152,8 @@ OBJS = ft_memset.o\
 		ft_sqrt.o\
 		ft_hypotenuse.o\
 		ft_melt_colors.o\
-		ft_break_color_down.o
+		ft_break_color_down.o\
+		ft_itoa_base.o
 
 all: $(NAME)
 

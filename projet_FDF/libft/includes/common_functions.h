@@ -19,5 +19,6 @@ int				ft_sqrt(int n);
 int				ft_hypotenuse(int base, int hauteur);
 int				ft_melt_colors(int red, int green, int blue);
 void			ft_break_color_down(int *red, int *green, int *blue, int color);
+char			*ft_itoa_base(int n, const char *base, int pres, int spac);
 
 #endif
