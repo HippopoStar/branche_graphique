@@ -79,7 +79,6 @@ SRCS = ./srcs_libft/ft_memset.c\
 		./srcs_common_functions/get_next_line.c\
 		./srcs_common_functions/ft_putnbr_base.c\
 		./srcs_common_functions/ft_split_whitespaces.c\
-		./srcs_common_functions/ft_two_power.c\
 		./srcs_common_functions/ft_sqrt.c\
 		./srcs_common_functions/ft_hypotenuse.c\
 		./srcs_common_functions/ft_melt_colors.c\
@@ -149,7 +148,6 @@ OBJS = ft_memset.o\
 		get_next_line.o\
 		ft_putnbr_base.o\
 		ft_split_whitespaces.o\
-		ft_two_power.o\
 		ft_sqrt.o\
 		ft_hypotenuse.o\
 		ft_melt_colors.o\

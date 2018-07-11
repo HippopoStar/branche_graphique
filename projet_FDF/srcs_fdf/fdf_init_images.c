@@ -11,9 +11,9 @@ void	fdf_put_px_into_img(t_mlx_img *pic, int x, int y, int color)
 	{
 		px = pic->img_str + (4 * y * pic->width) + (4 * x);
 		ft_break_color_down(&r, &g, &b, color);
-		*(px + 0) = (char)r;
+		*(px + 2) = (char)r;
 		*(px + 1) = (char)g;
-		*(px + 2) = (char)b;
+		*(px + 0) = (char)b;
 	}
 }
 
