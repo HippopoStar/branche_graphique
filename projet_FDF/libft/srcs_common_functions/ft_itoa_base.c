@@ -6,7 +6,7 @@
 /*   By: lcabanes <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/12 02:25:48 by lcabanes          #+#    #+#             */
-/*   Updated: 2018/07/12 02:58:30 by lcabanes         ###   ########.fr       */
+/*   Updated: 2018/07/12 07:13:29 by lcabanes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ char		*ft_itoa_base(int n, const char *base, size_t pres, size_t spac)
 	l_n.content = (void *)(&nb);
 	l_n.next = &l_base;
 	l_base.content = (void *)base;
-	if (!base || !(l_base.content_size = ft_strlen(base)))
+	if (!base || (l_base.content_size = ft_strlen(base)) < 2)
 	{
 		return (NULL);
 	}
