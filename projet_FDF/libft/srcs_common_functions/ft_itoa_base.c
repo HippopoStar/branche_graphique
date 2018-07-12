@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa_base.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lcabanes <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/07/12 02:25:48 by lcabanes          #+#    #+#             */
+/*   Updated: 2018/07/12 02:38:46 by lcabanes         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-char	*aux2_ft_itoa_base(size_t length, t_list *lst)
+static char	*aux2_ft_itoa_base(size_t length, t_list *lst)
 {
 	char	*str;
 	size_t	i;
@@ -18,12 +30,12 @@ char	*aux2_ft_itoa_base(size_t length, t_list *lst)
 	return (str);
 }
 
-char	*aux1_ft_itoa_base(t_list *l_n, size_t i, t_list *lst)
+static char	*aux1_ft_itoa_base(t_list *l_n, size_t i, t_list *lst)
 {
 	t_list	new;
 	char	c;
 
-	if ((size_t)(*((int *)((l_n->next)->next)->content)) > i)
+	if (*((size_t *)((l_n->next)->next)->content) > i)
 	{
 		c = '0';
 	}
@@ -45,21 +57,23 @@ char	*aux1_ft_itoa_base(t_list *l_n, size_t i, t_list *lst)
 	return (aux1_ft_itoa_base(l_n, i + 1, &new));
 }
 
-// Gerer le cas n = 0
-char	*aux0_ft_itoa_base(t_list *l_n, size_t i, t_list *lst)
+static char	*aux0_ft_itoa_base(t_list *l_n, size_t i, t_list *lst)
 {
-	t_list	new;
-	char	c;
-	int		tmp;
+	t_list					new;
+	char					c;
+	unsigned long long int	tmp;
 
-	if (*((int *)(l_n->content)) == 0)
+	if (*((unsigned long long int *)(l_n->content)) == 0)
 	{
 		return (aux1_ft_itoa_base(l_n, i, lst));
 	}
 	else
 	{
-		c = *((char *)((l_n->next)->content) + (*((int *)(l_n->content)) % (l_n->next)->content_size));
-		tmp = *((int *)l_n->content) / (l_n->next)->content_size;
+		c = *((char *)((l_n->next)->content)\
+				+ ((size_t)(*((unsigned long long int *)(l_n->content)))\
+					% (l_n->next)->content_size));
+		tmp = *((unsigned long long int *)l_n->content)\
+				/ (unsigned long long int)((l_n->next)->content_size);
 		l_n->content = (void *)(&tmp);
 		new.content = (void *)(&c);
 		new.next = lst;
@@ -67,19 +81,19 @@ char	*aux0_ft_itoa_base(t_list *l_n, size_t i, t_list *lst)
 	}
 }
 
-char	*ft_itoa_base(int n, const char *base, int pres, int spac)
+char		*ft_itoa_base(int n, const char *base, size_t pres, size_t spac)
 {
-	t_list	l_n;
-	t_list	l_base;
-	t_list	l_length;
+	t_list					l_n;
+	t_list					l_base;
+	t_list					l_length;
+	unsigned long long int	nb;
 
 	l_n.content_size = (n < 0) ? 1 : 0;
-	n = (n < 0) ? -n : n;
-	l_n.content = (void *)(&n);
+	nb = (unsigned long long int)((n < 0) ? -n : n);
+	l_n.content = (void *)(&nb);
 	l_n.next = &l_base;
 	l_base.content = (void *)base;
-	l_base.content_size = ft_strlen(base);
-	if (l_base.content_size == 0)
+	if (!base || !(l_base.content_size = ft_strlen(base)))
 	{
 		return (NULL);
 	}
