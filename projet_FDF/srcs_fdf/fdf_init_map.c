@@ -6,7 +6,7 @@
 /*   By: lcabanes <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/07 19:57:40 by lcabanes          #+#    #+#             */
-/*   Updated: 2018/07/12 04:49:14 by lcabanes         ###   ########.fr       */
+/*   Updated: 2018/07/12 06:42:05 by lcabanes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ void	fdf_rec_get_file_lines(int fd, t_fdf *win0,\
 	size_t		ret_cf;
 
 	line.next = previous;
-	ret_gnl = get_next_line(fd, &(line.str));
+	ret_gnl = get_next_line_backslash_zero(fd, &(line.str));
 	if (ret_gnl == -1)
 		fdf_error_code("fdf_rec_get_file_lines");
 	else if (ret_gnl == 0)

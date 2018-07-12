@@ -6,7 +6,7 @@
 #    By: lcabanes <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/07 19:50:49 by lcabanes          #+#    #+#              #
-#    Updated: 2018/02/28 18:28:58 by lcabanes         ###   ########.fr        #
+#    Updated: 2018/07/12 06:38:32 by lcabanes         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -77,6 +77,7 @@ SRCS = ./srcs_libft/ft_memset.c\
 		./srcs_libft/ft_lstmap.c\
 		\
 		./srcs_common_functions/get_next_line.c\
+		./srcs_common_functions/get_next_line_backslash_zero.c\
 		./srcs_common_functions/ft_putnbr_base.c\
 		./srcs_common_functions/ft_split_whitespaces.c\
 		./srcs_common_functions/ft_sqrt.c\
@@ -147,6 +148,7 @@ OBJS = ft_memset.o\
 		ft_lstmap.o\
 		\
 		get_next_line.o\
+		get_next_line_backslash_zero.o\
 		ft_putnbr_base.o\
 		ft_split_whitespaces.o\
 		ft_sqrt.o\

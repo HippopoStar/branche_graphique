@@ -6,7 +6,7 @@
 /*   By: lcabanes <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/09 11:42:05 by lcabanes          #+#    #+#             */
-/*   Updated: 2018/07/08 05:09:08 by lcabanes         ###   ########.fr       */
+/*   Updated: 2018/07/12 06:37:24 by lcabanes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@
 static void	ft_atoi_initialize(int *n, int neg, int *a, int *b)
 {
 	*n = 0;
-	*a = !neg ? (INT_MAX / 10) : (-(INT_MIN / 10));
-	*b = !neg ? (INT_MAX % 10) : (-(INT_MIN % 10));
+	*a = !neg ? (FT_INT_MAX / 10) : (-(FT_INT_MIN / 10));
+	*b = !neg ? (FT_INT_MAX % 10) : (-(FT_INT_MIN % 10));
 }
 
 static int	ft_atoi_add(int *n, char c, int a, int b)
