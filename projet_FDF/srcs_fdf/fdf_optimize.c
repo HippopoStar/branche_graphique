@@ -6,7 +6,7 @@
 /*   By: lcabanes <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/12 03:02:51 by lcabanes          #+#    #+#             */
-/*   Updated: 2018/07/12 03:02:54 by lcabanes         ###   ########.fr       */
+/*   Updated: 2018/07/12 04:20:07 by lcabanes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	fdf_optimize(int key, t_fdf *win0)
 		}
 		else
 		{
-			win0->optimize = 1;
+			win0->optimize = 0;
 			fdf_redraw(win0);
 		}
 		return (1);

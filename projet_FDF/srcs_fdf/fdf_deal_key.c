@@ -6,7 +6,7 @@
 /*   By: lcabanes <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/07 19:55:51 by lcabanes          #+#    #+#             */
-/*   Updated: 2018/07/09 03:27:20 by lcabanes         ###   ########.fr       */
+/*   Updated: 2018/07/12 04:41:30 by lcabanes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int	fdf_deal_key(int key, void *param)
 	ft_putnbr_base(key, "0123456789ABCDEF");
 	if (key == MLX_ESCAPE)
 	{
+		ft_putchar('\n');
 		exit(0);
 	}
 	else
