@@ -6,7 +6,7 @@
 /*   By: lcabanes <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/09 03:18:29 by lcabanes          #+#    #+#             */
-/*   Updated: 2018/07/09 03:28:11 by lcabanes         ###   ########.fr       */
+/*   Updated: 2018/07/12 03:10:06 by lcabanes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ int	fdf_spacing(int key, t_fdf *win0)
 		|| (key == MLX_DOWN && win0->spacing > 1))
 	{
 		(key == MLX_UP) ? (win0->spacing)++ : (win0->spacing)--;
-		(win0->optimize == 0) ? fdf_redraw_full(win0) : fdf_img_redraw_full(win0);
+		(win0->optimize == 0) ? fdf_redraw_full(win0)
+								: fdf_img_redraw_full(win0);
 		return (1);
 	}
 	return (0);

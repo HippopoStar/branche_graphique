@@ -6,7 +6,7 @@
 /*   By: lcabanes <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/07 19:55:12 by lcabanes          #+#    #+#             */
-/*   Updated: 2018/07/07 20:34:00 by lcabanes         ###   ########.fr       */
+/*   Updated: 2018/07/12 03:14:23 by lcabanes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ void	fdf_redraw_color(int x_val, int y_val, t_fdf *win0)
 	win0->color = ft_melt_colors(255 - (2 * x_val), 2 * y_val, 2 * x_val);
 	ft_break_color_down(&(win0->r0), &(win0->g0), &(win0->b0), win0->color);
 	fdf_color_pos(win0);
-	(win0->optimize == 0) ? fdf_draw(win0, win0->pos) : fdf_img_draw(win0, win0->pos);
+	(win0->optimize == 0) ? fdf_draw(win0, win0->pos)
+							: fdf_img_draw(win0, win0->pos);
 	fdf_cross(CP_X0 + (win0->b0 / 2), CP_Y0 + (win0->g0 / 2), 0x000000, win0);
 }
 

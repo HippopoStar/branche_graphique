@@ -6,7 +6,7 @@
 /*   By: lcabanes <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/07 20:00:31 by lcabanes          #+#    #+#             */
-/*   Updated: 2018/07/09 03:37:05 by lcabanes         ###   ########.fr       */
+/*   Updated: 2018/07/12 03:20:29 by lcabanes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ int		fdf_zoom(int button, t_fdf *win0)
 		|| (button == MLX_POINTER_BUTTON5))
 	{
 		(button == MLX_POINTER_BUTTON4) ? (win0->zoom)++ : (win0->zoom)--;
-		(win0->optimize == 0) ? fdf_redraw_full(win0) : fdf_img_redraw_full(win0);
+		(win0->optimize == 0) ? fdf_redraw_full(win0)
+								: fdf_img_redraw_full(win0);
 		return (1);
 	}
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: lcabanes <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/19 23:17:07 by lcabanes          #+#    #+#             */
-/*   Updated: 2018/07/09 04:48:34 by lcabanes         ###   ########.fr       */
+/*   Updated: 2018/07/12 03:22:36 by lcabanes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,33 +32,38 @@
 # define FDF_DEFAULT_INTENSITY	1
 # define ORI_ABS				200
 # define ORI_ORD				30
+
 /*
+** ASSIGNATIONS MAC_OS
+*/
 # define MLX_ESCAPE				0x0035
 # define MLX_UP					0x007E
 # define MLX_DOWN				0x007D
 # define MLX_D					0x0002
+# define MLX_I					0x0022
 # define MLX_R					0x000F
 # define MLX_U					0x0020
 # define MLX_POINTER_BUTTON1	0x0001
 # define MLX_POINTER_BUTTON3	0x0002
 # define MLX_POINTER_BUTTON4	0x0004
 # define MLX_POINTER_BUTTON5	0x0005
-*/
 
 /*
 ** ASSIGNATIONS LINUX
 */
-# define MLX_ESCAPE				0xFF1B
-# define MLX_UP					0xFF52
-# define MLX_DOWN				0xFF54
-# define MLX_D					0x0064
-# define MLX_I					0x0069
-# define MLX_R					0x0072
-# define MLX_U					0x0075
-# define MLX_POINTER_BUTTON1		0x0001
-# define MLX_POINTER_BUTTON3		0x0003
-# define MLX_POINTER_BUTTON4		0x0004
-# define MLX_POINTER_BUTTON5		0x0005
+/*
+** # define MLX_ESCAPE				0xFF1B
+** # define MLX_UP					0xFF52
+** # define MLX_DOWN				0xFF54
+** # define MLX_D					0x0064
+** # define MLX_I					0x0069
+** # define MLX_R					0x0072
+** # define MLX_U					0x0075
+** # define MLX_POINTER_BUTTON1		0x0001
+** # define MLX_POINTER_BUTTON3		0x0003
+** # define MLX_POINTER_BUTTON4		0x0004
+** # define MLX_POINTER_BUTTON5		0x0005
+*/
 
 typedef struct			s_point
 {
@@ -124,11 +129,16 @@ void					fdf_bresenham_8th_octant\
 						(t_point a, t_point b, void *mlx_ptr, void *win_ptr);
 void					fdf_bresenham_7th_octant\
 						(t_point a, t_point b, void *mlx_ptr, void *win_ptr);
-void					fdf_img_imp_bresenham(t_point *a, t_point *b, t_mlx_img *pic);
-void					fdf_img_bresenham_1st_octant(t_point a, t_point b, t_mlx_img *pic);
-void					fdf_img_bresenham_2nd_octant(t_point a, t_point b, t_mlx_img *pic);
-void					fdf_img_bresenham_8th_octant(t_point a, t_point b, t_mlx_img *pic);
-void					fdf_img_bresenham_7th_octant(t_point a, t_point b, t_mlx_img *pic);
+void					fdf_img_imp_bresenham\
+									(t_point *a, t_point *b, t_mlx_img *pic);
+void					fdf_img_bresenham_1st_octant\
+										(t_point a, t_point b, t_mlx_img *pic);
+void					fdf_img_bresenham_2nd_octant\
+										(t_point a, t_point b, t_mlx_img *pic);
+void					fdf_img_bresenham_8th_octant\
+										(t_point a, t_point b, t_mlx_img *pic);
+void					fdf_img_bresenham_7th_octant\
+										(t_point a, t_point b, t_mlx_img *pic);
 int						fdf_gradation\
 						(t_point cur, t_point des, int cur_dist, int tot_dist);
 int						fdf_prime_improvement(t_point *a, t_point *b);
@@ -138,7 +148,8 @@ void					fdf_init_struct\
 void					fdf_init_images(t_fdf *win0);
 void					fdf_init_img_fdf(t_fdf *win0);
 void					fdf_clear_img(t_mlx_img *pic);
-void					fdf_put_px_into_img(t_mlx_img *pic, int x, int y, int color);
+void					fdf_put_px_into_img\
+									(t_mlx_img *pic, int x, int y, int color);
 void					fdf_color_palette\
 								(void *mlx_ptr, void *win_ptr, int x0, int y0);
 void					fdf_img_color_palette(t_mlx_img *pic);

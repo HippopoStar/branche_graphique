@@ -6,7 +6,7 @@
 /*   By: lcabanes <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/07 20:00:39 by lcabanes          #+#    #+#             */
-/*   Updated: 2018/07/09 03:51:03 by lcabanes         ###   ########.fr       */
+/*   Updated: 2018/07/12 03:12:57 by lcabanes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@ void	fdf(char *file_name)
 	fdf_init_images(win0);
 	fdf_img_color_palette(win0->mlx_img_cp);
 	fdf_img_draw(win0, win0->pos);
-//	fdf_draw(win0, win0->pos);
-//	fdf_color_palette(win0->mlx_ptr, win0->win_ptr, CP_X0, CP_Y0);
 	mlx_key_hook(win0->win_ptr, fdf_deal_key, (void *)win0);
 	mlx_mouse_hook(win0->win_ptr, fdf_deal_mouse, (void *)win0);
 	mlx_loop(win0->mlx_ptr);

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf_draw.c                                         :+:      :+:    :+:   */
+/*   fdf_img_draw.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lcabanes <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/07 19:56:21 by lcabanes          #+#    #+#             */
-/*   Updated: 2018/07/09 04:50:13 by lcabanes         ###   ########.fr       */
+/*   Created: 2018/07/12 03:18:44 by lcabanes          #+#    #+#             */
+/*   Updated: 2018/07/12 03:18:52 by lcabanes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,23 +67,22 @@ void	fdf_img_build(t_fdf *win0, t_point **pos)
 void	fdf_img_draw(t_fdf *win0, t_point **pos)
 {
 	fdf_img_build(win0, pos);
-	mlx_put_image_to_window(win0->mlx_ptr, win0->win_ptr, (win0->mlx_img_fdf)->img_ptr, 0, 0);
-	mlx_put_image_to_window(win0->mlx_ptr, win0->win_ptr, (win0->mlx_img_cp)->img_ptr, CP_X0, CP_Y0);
+	mlx_put_image_to_window(win0->mlx_ptr, win0->win_ptr,\
+			(win0->mlx_img_fdf)->img_ptr, 0, 0);
+	mlx_put_image_to_window(win0->mlx_ptr, win0->win_ptr,\
+			(win0->mlx_img_cp)->img_ptr, CP_X0, CP_Y0);
 	fdf_display_parameters(win0);
 }
 
 void	fdf_img_redraw(t_fdf *win0)
 {
-//	t_mlx_img	*tmp;
-
-//	tmp = win0->mlx_img_fdf;
-//	fdf_init_img_fdf(win0);
 	fdf_clear_img(win0->mlx_img_fdf);
 	fdf_img_build(win0, win0->pos);
 	mlx_clear_window(win0->mlx_ptr, win0->win_ptr);
-//	mlx_destroy_image(win0->mlx_ptr, tmp->img_ptr);
-	mlx_put_image_to_window(win0->mlx_ptr, win0->win_ptr, (win0->mlx_img_fdf)->img_ptr, 0, 0);
-	mlx_put_image_to_window(win0->mlx_ptr, win0->win_ptr, (win0->mlx_img_cp)->img_ptr, CP_X0, CP_Y0);
+	mlx_put_image_to_window(win0->mlx_ptr, win0->win_ptr,\
+			(win0->mlx_img_fdf)->img_ptr, 0, 0);
+	mlx_put_image_to_window(win0->mlx_ptr, win0->win_ptr,\
+			(win0->mlx_img_cp)->img_ptr, CP_X0, CP_Y0);
 	fdf_display_parameters(win0);
 }
 
