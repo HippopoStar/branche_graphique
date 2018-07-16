@@ -6,7 +6,7 @@
 /*   By: lcabanes <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/08 05:09:19 by lcabanes          #+#    #+#             */
-/*   Updated: 2018/07/13 16:48:00 by lcabanes         ###   ########.fr       */
+/*   Updated: 2018/07/17 00:23:27 by lcabanes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,6 @@ int				ft_melt_colors(int red, int green, int blue);
 void			ft_break_color_down(int *red, int *green, int *blue, int color);
 char			*ft_itoa_base\
 							(int n, const char *base, size_t pres, size_t spac);
-unsigned int	ft_wildchar_to_unsigned_int(wint_t wildchar);
+char			*ft_wildstring_to_string(wchar_t *wildstring);
 
 #endif
