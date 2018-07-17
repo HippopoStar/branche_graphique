@@ -1,5 +1,4 @@
 #include "libft.h"
-#include <stdio.h>
 
 int	main(void)
 {
@@ -12,8 +11,6 @@ int	main(void)
 	char	*str2;
 	char	*str3;
 
-	(void)str1;
-	(void)str3;
 	*(test0 + 0) = L'a';
 	*(test0 + 1) = L'\0';
 	*(test1 + 0) = L'一';
@@ -27,10 +24,10 @@ int	main(void)
 	*(test3 + 2) = L'一';
 	*(test3 + 3) = L'ሴ';
 	*(test3 + 4) = L'\0';
-	str0 = ft_wildstring_to_string(test0);
-	str1 = ft_wildstring_to_string(test1);
-	str2 = ft_wildstring_to_string(test2);
-	str3 = ft_wildstring_to_string(test3);
+	str0 = ft_widestring_to_string(test0);
+	str1 = ft_widestring_to_string(test1);
+	str2 = ft_widestring_to_string(test2);
+	str3 = ft_widestring_to_string(test3);
 	ft_putstr(str0);
 	ft_putchar('\n');
 	ft_putstr(str1);
