@@ -6,14 +6,14 @@
 /*   By: lcabanes <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/08 05:09:19 by lcabanes          #+#    #+#             */
-/*   Updated: 2018/07/17 03:26:19 by lcabanes         ###   ########.fr       */
+/*   Updated: 2018/07/17 03:35:42 by lcabanes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef COMMON_FUNCTIONS_H
 # define COMMON_FUNCTIONS_H
 
-#include <wchar.h>
+# include <wchar.h>
 
 void			ft_putnbr_base(int nbr, char *base);
 char			**ft_split_whitespaces(char *str);
