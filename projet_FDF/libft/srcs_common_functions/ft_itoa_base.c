@@ -6,7 +6,7 @@
 /*   By: lcabanes <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/12 02:25:48 by lcabanes          #+#    #+#             */
-/*   Updated: 2018/07/12 07:13:29 by lcabanes         ###   ########.fr       */
+/*   Updated: 2018/07/18 02:19:15 by lcabanes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ static char	*aux1_ft_itoa_base(t_list *l_n, size_t i, t_list *lst)
 	return (aux1_ft_itoa_base(l_n, i + 1, &new));
 }
 
-static char	*aux0_ft_itoa_base(t_list *l_n, size_t i, t_list *lst)
+char		*aux0_ft_itoa_base(t_list *l_n, size_t i, t_list *lst)
 {
 	t_list					new;
 	char					c;

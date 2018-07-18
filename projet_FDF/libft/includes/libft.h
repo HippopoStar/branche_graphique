@@ -6,7 +6,7 @@
 /*   By: lcabanes <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/08 12:49:10 by lcabanes          #+#    #+#             */
-/*   Updated: 2018/07/12 06:36:32 by lcabanes         ###   ########.fr       */
+/*   Updated: 2018/07/18 04:46:55 by lcabanes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # include <string.h>
 # include "get_next_line.h"
 # include "get_next_line_backslash_zero.h"
-# include "common_functions.h"
 
 /*
 ** Le header <limits.h> contient les macro' suivantes utilisees dans 'ft_atoi' :
