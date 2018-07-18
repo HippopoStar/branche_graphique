@@ -1,59 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_additionnal_itoa_base.c                         :+:      :+:    :+:   */
+/*   ft_lli_and_ulli_toa_base.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lcabanes <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/18 03:08:42 by lcabanes          #+#    #+#             */
-/*   Updated: 2018/07/18 04:52:28 by lcabanes         ###   ########.fr       */
+/*   Created: 2018/07/18 06:06:55 by lcabanes          #+#    #+#             */
+/*   Updated: 2018/07/18 06:10:10 by lcabanes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "common_functions.h"
 
-char	*ft_sitoa_base(short int n, const char *base, size_t pres, size_t spac)
+char	*ft_ullitoa_base(unsigned long long int n, const char *base,\
+													size_t pres, size_t spac)
 {
 	t_list					l_n;
 	t_list					l_base;
 	t_list					l_length;
-	long long int			tmp;
-	unsigned long long int	nb;
 
-	l_n.content_size = (n < 0) ? 1 : 0;
-	tmp = (long long int)n;
-	nb = (unsigned long long int)((n < 0) ? -tmp : tmp);
-	l_n.content = (void *)(&nb);
-	l_n.next = &l_base;
-	l_base.content = (void *)base;
-	if (!base || (l_base.content_size = ft_strlen(base)) < 2)
-	{
-		return (NULL);
-	}
-	l_base.next = &l_length;
-	if (pres == 0)
-	{
-		pres = 1;
-	}
-	l_length.content = (void *)(&pres);
-	l_length.content_size = spac;
-	l_length.next = NULL;
-	return (aux0_ft_itoa_base(&l_n, 0, NULL));
-}
-
-char	*ft_litoa_base(long int n, const char *base, size_t pres, size_t spac)
-{
-	t_list					l_n;
-	t_list					l_base;
-	t_list					l_length;
-	long long int			tmp;
-	unsigned long long int	nb;
-
-	l_n.content_size = (n < 0) ? 1 : 0;
-	tmp = (long long int)n;
-	nb = (unsigned long long int)((n < 0) ? -tmp : tmp);
-	l_n.content = (void *)(&nb);
+	l_n.content_size = 0;
+	l_n.content = (void *)(&n);
 	l_n.next = &l_base;
 	l_base.content = (void *)base;
 	if (!base || (l_base.content_size = ft_strlen(base)) < 2)

@@ -6,7 +6,7 @@
 #    By: lcabanes <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/07 19:50:49 by lcabanes          #+#    #+#              #
-#    Updated: 2018/07/18 04:47:19 by lcabanes         ###   ########.fr        #
+#    Updated: 2018/07/18 06:12:29 by lcabanes         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -85,8 +85,7 @@ SRCS = ./srcs_libft/ft_memset.c\
 		./srcs_common_functions/ft_melt_colors.c\
 		./srcs_common_functions/ft_break_color_down.c\
 		./srcs_common_functions/ft_itoa_base.c\
-		./srcs_common_functions/ft_additionnal_itoa_base.c\
-		./srcs_common_functions/ft_unsigned_itoa_base.c\
+		./srcs_common_functions/ft_lli_and_ulli_toa_base.c\
 		./srcs_common_functions/ft_widestring_to_string.c
 
 OBJS = ft_memset.o\
@@ -159,8 +158,7 @@ OBJS = ft_memset.o\
 		ft_melt_colors.o\
 		ft_break_color_down.o\
 		ft_itoa_base.o\
-		ft_additionnal_itoa_base.o\
-		ft_unsigned_itoa_base.o\
+		ft_lli_and_ulli_toa_base.o\
 		ft_widestring_to_string.o
 
 all: $(NAME)
