@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 CFLAGS	+=		-Wall -Wextra -Werror
-CFLAGS	+=		-I./ -I./libft/includes -I/usr/local/include/
+CFLAGS	+=		-I./ -I./libft/includes/ -I/usr/local/include/
 LIBS	+=		-L./libft/ -lft -L/usr/local/lib/ -lmlx
 LINUX	=		-lXext -lX11
 MAC_OS	=		-framework OpenGL -framework AppKit
@@ -86,7 +86,7 @@ all: $(NAME)
 $(NAME):
 	@make -C ./libft/ all
 	gcc -c $(CFLAGS) $(SRCS)
-	gcc -o $(NAME) $(CFLAGS) $(OBJS) $(LIBS) $(MAC_OS)
+	gcc -o $(NAME) $(CFLAGS) $(OBJS) $(LIBS) $(LINUX)
 
 clean:
 	@make -C ./libft/ clean

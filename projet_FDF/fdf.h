@@ -14,6 +14,7 @@
 # define FDF_H
 
 # include "libft.h"
+# include "common_functions.h"
 # include "get_next_line.h"
 # include <stdio.h>
 # include <stdlib.h>
@@ -36,34 +37,34 @@
 /*
 ** ASSIGNATIONS MAC_OS
 */
-# define MLX_ESCAPE				0x0035
-# define MLX_UP					0x007E
-# define MLX_DOWN				0x007D
-# define MLX_D					0x0002
-# define MLX_I					0x0022
-# define MLX_R					0x000F
-# define MLX_U					0x0020
-# define MLX_POINTER_BUTTON1	0x0001
-# define MLX_POINTER_BUTTON3	0x0002
-# define MLX_POINTER_BUTTON4	0x0004
-# define MLX_POINTER_BUTTON5	0x0005
+/*
+** # define MLX_ESCAPE				0x0035
+** # define MLX_UP					0x007E
+** # define MLX_DOWN				0x007D
+** # define MLX_D					0x0002
+** # define MLX_I					0x0022
+** # define MLX_R					0x000F
+** # define MLX_U					0x0020
+** # define MLX_POINTER_BUTTON1	0x0001
+** # define MLX_POINTER_BUTTON3	0x0002
+** # define MLX_POINTER_BUTTON4	0x0004
+** # define MLX_POINTER_BUTTON5	0x0005
+*/
 
 /*
 ** ASSIGNATIONS LINUX
 */
-/*
-** # define MLX_ESCAPE				0xFF1B
-** # define MLX_UP					0xFF52
-** # define MLX_DOWN				0xFF54
-** # define MLX_D					0x0064
-** # define MLX_I					0x0069
-** # define MLX_R					0x0072
-** # define MLX_U					0x0075
-** # define MLX_POINTER_BUTTON1		0x0001
-** # define MLX_POINTER_BUTTON3		0x0003
-** # define MLX_POINTER_BUTTON4		0x0004
-** # define MLX_POINTER_BUTTON5		0x0005
-*/
+# define MLX_ESCAPE				0xFF1B
+# define MLX_UP					0xFF52
+# define MLX_DOWN				0xFF54
+# define MLX_D					0x0064
+# define MLX_I					0x0069
+# define MLX_R					0x0072
+# define MLX_U					0x0075
+# define MLX_POINTER_BUTTON1		0x0001
+# define MLX_POINTER_BUTTON3		0x0003
+# define MLX_POINTER_BUTTON4		0x0004
+# define MLX_POINTER_BUTTON5		0x0005
 
 typedef struct			s_point
 {
